@@ -1,0 +1,45 @@
+#obrzBg {
+    width: 100vw;
+    height: 100vh;
+    margin-bottom: 5vh;
+
+    background: url("../images/college.jpg");
+    background-size: contain;
+    /*background-position: ;*/
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#obrzBg #obrzText h1{
+    text-transform: uppercase;
+    color: var(--header);
+    font-size: 15rem;
+    font-family: 'Poppins', ui-sans-serif;
+    text-shadow: -20px 20px 40px rgba(0, 0, 0, 0.8);
+}
+#obrzBg #obrzText h2 i{
+    color: black;
+    font-size: 2.5rem;
+    text-shadow: -20px 20px 40px rgba(0, 0, 0, 0.8);
+
+    margin-left: 1%;
+}
+#obrzBg #obrzText h2 {
+    margin-right: 4%;
+    display: flex;
+    justify-content: flex-end;
+}
+#obrzObj {
+    width: 100vw;
+    height: 100vh;
+
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("../images/collegeobj.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}

@@ -1,0 +1,159 @@
+.optionsContainer {
+    margin-top: 2.5vh;
+    width: 100vw;
+    height: 95vh;
+
+    background: var(--background);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+
+    margin-bottom: 3%;
+}
+
+.options {
+    margin-left: 10%;
+    /*width: 80%;*/
+    height: 5%;
+    padding: 0.8rem 1rem;
+
+    border-radius: 10%;
+    /*background: var(--secondary);*/
+    border-bottom: 4px solid var(--accent);
+
+    display: flex;
+    align-items: center;
+}
+.option {
+    color: var(--text);
+    font-family: 'Poppins', ui-sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+
+    padding: 0.6rem 3rem;
+    /*margin: 0 1rem;*/
+    border-radius: 2.5%;
+
+    border-right: 4px solid var(--accent);
+}
+.option:hover {
+    color: var(--header);
+    transition: color 0.25s ease;
+}
+.displayed {
+    color: var(--header);
+    font-size: 2.3rem;
+}
+.last {
+    margin-right: 0;
+    border-right: none;
+}
+
+.optionsDisplay {
+    margin-left: 2.5%;
+    width: 95%;
+    height: 88%;
+
+    background: var(--accent);
+}
+
+
+
+
+
+#statisticsOption {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-between;
+}
+#statisticsOption #optionsStatistics {
+    width: 96%;
+    height: 100%;
+
+    background: var(--accent);
+}
+#statisticsOption #optionsStatisticsList {
+    width: 4%;
+    height: 100%;
+
+    background: var(--secondary);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#statisticsOption #optionsStatisticsList i {
+    color: var(--text);
+    font-size: 1.8rem;
+}
+#statisticsOption #optionsStatisticsList i:hover {
+    color: var(--header);
+}
+#statisticsOption #optionsStatisticsList .selected i {
+    color: var(--header);
+}
+
+
+
+
+#optionsMapLoc {
+    margin-top: 1%;
+    margin-left: 2.5%;
+    width: 95%;
+    height: 95%;
+
+    background: var(--background);
+    color: red;
+}
+
+/*IMPLEMENT THE optionsTimelineStil*/
+/*IMPLEMENT THE optionsTimelineStil*/
+
+
+/*PIC CHART PIC CHART PIC CHART PIC CHART PIC CHART PIC CHART PIC CHART PIC CHART*/
+/*PIC CHART PIC CHART PIC CHART PIC CHART PIC CHART PIC CHART PIC CHART PIC CHART*/
+/*PIC CHART PIC CHART PIC CHART PIC CHART PIC CHART PIC CHART PIC CHART PIC CHART*/
+#pie-chart {
+    margin-top: 2%;
+    color: var(--header);
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Poppins', ui-sans-serif;
+}
+
+#optionsPieChart {
+    justify-content: space-evenly;
+}
+#optionsPieChartText {
+    background: var(--background);
+
+    flex-direction: column;
+    border-left: var(--accent) 0.4rem solid;
+    border-bottom: var(--accent) 0.4rem solid;
+    border-radius: 5%;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+#optionsPieChartText > * {
+    color: var(--text);
+    /*color: var(--text);*/
+    margin: 5px 0;
+
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: 'Poppins', ui-sans-serif;
+}
+#optionsPieChartText h1 {
+    border-bottom: solid 0.2rem var(--header);
+    text-decoration: underline;
+
+    margin-top: 0;
+    margin-bottom: 1.4rem;
+    color: var(--header);
+    font-size: 3rem;
+}

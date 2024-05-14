@@ -1,0 +1,24 @@
+#intensions {
+    margin: 5vh 0;
+    width: 100vw;
+    height: 50vh;
+
+    background: var(--background);
+    color: var(--header);
+    font-family: 'Poppins', ui-sans-serif;
+    text-align: center;
+    /*font-weight: bold;*/
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#intensions h2 {
+    margin-top: 0;
+    font-size: 5rem;
+}
+#intensions #intensionsTexts {
+    display: flex;
+    justify-content: space-evenly;
+}

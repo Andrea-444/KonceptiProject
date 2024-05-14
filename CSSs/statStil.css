@@ -1,0 +1,50 @@
+.statistics {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+.statistics h1 {
+    margin: 0 auto;
+    color: var(--header);
+
+    height: 5%;
+    /*width: 50%;*/
+    font-size: 4rem;
+}
+.statsAbout {
+    height: 13%;
+    width: 25%;
+    margin-left: 5%;
+
+    /*background: red;*/
+    color: var(--text);
+    font-family: 'Poppins', ui-sans-serif;
+
+    padding-left: 1%;
+    border-left: solid 0.3rem var(--accent);
+}
+
+.statsAbout h2 {
+    color: var(--header);
+    margin: 0;
+    font-size: 2rem;
+}
+.statsAbout p {
+    font-size: 1.1rem;
+    color: var(--text);
+}
+
+.statistics .stats {
+    margin-left: 2.5%;
+    width: 95%;
+    height: 70%;
+
+    display: flex;
+    justify-content: center;
+
+    background: var(--accent);
+}

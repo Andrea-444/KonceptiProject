@@ -1,0 +1,86 @@
+#kategorii {
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+    width: 100vw;
+    height: 60vh;
+}
+
+.gallery  {
+    width: 100%;
+    height: 40%;
+
+    --d: 30s; /* duration */
+
+    display: grid;
+    overflow: hidden;
+}
+.gallery > img {
+    grid-area: 1/1;
+    height: 100%;
+    width: 25%;
+    /*aspect-ratio: 1 / 1;*/
+    object-fit: cover;
+    animation: l var(--d) linear infinite;
+    animation-fill-mode: forwards;
+}
+.gallery > img:nth-child(2) {animation-delay: calc(1*var(--d)/-6)}
+.gallery > img:nth-child(3) {animation-delay: calc(2*var(--d)/-6)}
+.gallery > img:nth-child(4) {animation-delay: calc(3*var(--d)/-6)}
+.gallery > img:nth-child(5) {animation-delay: calc(4*var(--d)/-6)}
+.gallery > img:nth-child(6) {animation-delay: calc(5*var(--d)/-6)}
+
+@keyframes l {
+    25%    {transform: translate(-150%)}
+    25.0001% {transform: translate( 450%)}
+}
+.gallery:hover > img {
+    animation-play-state: paused;
+}
+.gallery > img:hover {
+    transform: scale(1.2); /* Enlarge the hovered image */
+    z-index: 1; /* Ensure the hovered image appears above other images */
+}
+
+
+
+
+
+
+.galleryBottom  {
+    margin-top: 0.5%;
+    width: 100%;
+    height: 60%;
+
+    --f: 22s;
+
+    display: grid;
+    overflow: hidden;
+    /*-webkit-mask: linear-gradient(90deg,#0000,#000 10% 90%,#0000);*/
+}
+.galleryBottom > img {
+    grid-area: 1/1;
+    height: 100%;
+    width: 33.3%;
+    /*aspect-ratio: 1 / 1;*/
+    object-fit: cover;
+    object-position: center center;
+    animation: r var(--f) linear infinite;
+    animation-fill-mode: forwards;
+}
+.galleryBottom > img:nth-child(2) {animation-delay: calc(1*var(--f)/-6)}
+.galleryBottom > img:nth-child(3) {animation-delay: calc(2*var(--f)/-6)}
+.galleryBottom > img:nth-child(4) {animation-delay: calc(3*var(--f)/-6)}
+.galleryBottom > img:nth-child(5) {animation-delay: calc(4*var(--f)/-6)}
+.galleryBottom > img:nth-child(6) {animation-delay: calc(5*var(--f)/-6)}
+
+@keyframes r {
+    33%    {transform: translate(-200%)}
+    33.0001% {transform: translate( 400%)}
+}
+.galleryBottom:hover > img {
+    animation-play-state: paused;
+}
+.galleryBottom > img:hover {
+    transform: scale(1.2); /* Enlarge the hovered image */
+    z-index: 1; /* Ensure the hovered image appears above other images */
+}

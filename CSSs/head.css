@@ -1,0 +1,62 @@
+/*:root {*/
+/*    --text: #101916;*/
+/*    --background: #e2e4d8;*/
+/*    --primary: #345043;*/
+/*    --secondary: #648274;*/
+/*    --accent: #aec1b5;*/
+/*}*/
+/* HEAD HEAD HEAD HEAD HEAD HEAD HEAD HEAD HEAD HEAD HEAD */
+/* HEAD HEAD HEAD HEAD HEAD HEAD HEAD HEAD HEAD HEAD HEAD */
+/* HEAD HEAD HEAD HEAD HEAD HEAD HEAD HEAD HEAD HEAD HEAD */
+#head {
+    width: 100vw;
+    height: 100vh;
+
+    /*background: url("https://plus.unsplash.com/premium_photo-1661962335596-5abf22456a8c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");*/
+    background: url("../images/ohrid.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+#head h1 {
+    color: var(--header);
+    /*color: white;*/
+
+    font-weight: bold;
+    font-size: 8rem;
+    text-align: center;
+}
+#head h4 {
+    color: var(--header);
+    /*color: white;*/
+
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+#info {
+    background: var(--secondary);
+    border: 2px solid var(--accent);
+    border-radius: 15%;
+
+    content: '';
+    position: absolute;
+    top: 2%;
+    left: 96%;
+    width: 3rem;
+    aspect-ratio: 1 / 1;
+
+    z-index: 1;
+}
+#info i {
+    color: var(--text);
+    font-size: 2rem;
+}
+#info:hover {
+    top: 1.8%;
+    left: 95.8%;
+    width: 3.5rem;
+}
+#info:hover i {
+    font-size: 2.25rem;
+}

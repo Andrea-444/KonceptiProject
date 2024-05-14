@@ -1,0 +1,51 @@
+#zdrBg {
+    width: 100vw;
+    height: 100vh;
+
+    background: url("../images/zdravstvo.jpg");
+    background-size: cover;
+    /*background-position: ;*/
+
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+}
+#zdrBg #zdrText h1{
+    margin-top: 5%;
+    text-transform: uppercase;
+    color: var(--header);
+    font-size: 17rem;
+    font-family: 'Poppins', ui-sans-serif;
+    text-shadow: -20px 20px 40px rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+}
+#zdrBg #zdrText h2 i{
+    color: white;
+    font-size: 2.5rem;
+    text-shadow: -20px 20px 40px rgba(0, 0, 0, 0.8);
+
+    margin-left: 2%;
+}
+#zdrBg #zdrText h2 {
+    margin-right: 3%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#zdrObj {
+    width: 100vw;
+    height: 100vh;
+
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("../images/zdravstvoObj.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: background-position 0.5s ease-in;
+}
+#zdrObj:hover {
+    background-position: 0 5%;
+    transition: background-position 0.5s ease-in;
+}
