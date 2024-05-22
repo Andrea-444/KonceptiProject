@@ -1,0 +1,1512 @@
+[
+  {
+    "ИменаКомпанија": "Nextsense",
+    "Годинанаосновање": 2001,
+    "Брнавработени": "100",
+    "Програмскијазици": [
+      "HTML/CSS",
+      "JavaScript",
+      "Figma",
+      "AdobeXD",
+      "T-SQL"
+    ],
+    "Работнапозиција": [
+      "Databasedeveloper/MicrosoftSQL",
+      "Front-End",
+      "UI/UXengineer",
+      "QAEngineer",
+      "ProductManager"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Sorsix",
+    "Годинанаосновање": 2012,
+    "Брнавработени": "100",
+    "Програмскијазици": [
+      "Kotlin/Java",
+      "TypeScript/JavaScript",
+      "Spring/SpringBoot",
+      "Angular",
+      "PostgresSQL"
+    ],
+    "Работнапозиција": [
+      "SoftwareEngineer",
+      "DataScientist",
+      "ProjectManager",
+      "OperationsManager",
+      "ProgrammeManager"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Netcetera",
+    "Годинанаосновање": 1996,
+    "Брнавработени": "850",
+    "Програмскијазици": [
+      "Java",
+      "Python",
+      "JavaScript",
+      "C",
+      "C#",
+      "SQL",
+      "Swift",
+      "Kotlin",
+      "Ruby",
+      "HTML/CSS"
+    ],
+    "Работнапозиција": [
+      "Tailoredsoftwaresolutions",
+      "Comprehensivesystemsintegration",
+      "softwareproducts",
+      "digitalpayment",
+      "digitalpublishing",
+      "connectedhealthcare",
+      "pensionfundsoftware",
+      "digitalbanking",
+      "financialtechnology"
+    ],
+    "Локација": [
+      "Скопје",
+      "Битола",
+      "Охрид"
+    ]
+  },
+  {
+    "ИменаКомпанија": "IWconect",
+    "Годинанаосновање": 2004,
+    "Брнавработени": "350",
+    "Програмскијазици": [
+      "Java(Spring,Quarkus,Dropwizard)",
+      "JavaScript",
+      "Python",
+      "NET",
+      "PHP"
+    ],
+    "Работнапозиција": [
+      "JavaDeveloper",
+      "Softwaredeveloper",
+      "DataEngineer",
+      "MobileTechnicalConsultant"
+    ],
+    "Локација": [
+      "Скопје",
+      "Битола",
+      "Прилеп"
+    ]
+  },
+  {
+    "ИменаКомпанија": "AmbitiousSolutions",
+    "Годинанаосновање": 2018,
+    "Брнавработени": 60,
+    "Програмскијазици": [
+      "Java",
+      "JavaScript",
+      "TypeScript",
+      "NET"
+    ],
+    "Работнапозиција": [
+      "Software",
+      "ITServices",
+      "ITConsulting"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "OneInside",
+    "Годинанаосновање": 2012,
+    "Брнавработени": 30,
+    "Програмскијазици": [
+      "JavaEE",
+      "AdobeAEM",
+      "Nodejs",
+      "Angular",
+      "HTML5/CSS3",
+      "WebGL",
+      "Threejs"
+    ],
+    "Работнапозиција": [
+      "SoftwareEngineerJava",
+      "SoftwareEngineer",
+      "Front-end",
+      "QAEngineer",
+      "ProjectManager"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Mikrosam",
+    "Годинанаосновање": 1990,
+    "Брнавработени": 30,
+    "Програмскијазици": [
+      "Python",
+      "Java",
+      "JavaScript",
+      "C",
+      "C#",
+      "TypeScript",
+      "ActionScript",
+      "Ruby",
+      "Go"
+    ],
+    "Работнапозиција": [
+      "AdvancedCompositesSolutions",
+      "Robotics",
+      "Manufacturing",
+      "Machinery",
+      "AdvancedComposites",
+      "AutomatedSolutions",
+      "Automation",
+      "Softwareformachines",
+      "IndustrialAutomation"
+    ],
+    "Локација": "Прилеп"
+  },
+  {
+    "ИменаКомпанија": "ExpertsQA",
+    "Годинанаосновање": 2016,
+    "Брнавработени": "10",
+    "Програмскијазици": [
+      "Java",
+      "JavaScript",
+      "SQL",
+      "PHP",
+      "C"
+    ],
+    "Работнапозиција": [
+      "SoftwareDevelopment",
+      "Automationtesting",
+      "Performancetesting",
+      "Black-Boxtesting"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Quipu",
+    "Годинанаосновање": 2004,
+    "Брнавработени": 500,
+    "Програмскијазици": [
+      "C#",
+      "Net",
+      "RESTfulAPI",
+      "MSSQL",
+      "JavaScript",
+      "Python",
+      "Azure",
+      "MicrosoftTechnologies"
+    ],
+    "Работнапозиција": [
+      "SoftwareDevelopment",
+      "NetworkManagement",
+      "InfrastructureManagement",
+      "CardsPersonalization",
+      "CardsProcessing",
+      "ITServiceManagement",
+      "CloudServices"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Digidive",
+    "Годинанаосновање": 2015,
+    "Брнавработени": 31,
+    "Програмскијазици": [
+      "Java",
+      "JavaScript",
+      "TypeScript",
+      "NET"
+    ],
+    "Работнапозиција": [
+      "SoftwareDevelopment",
+      "UIDesign&Development",
+      "QA&Testing"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "itLabs",
+    "Годинанаосновање": 2005,
+    "Брнавработени": "700",
+    "Програмскијазици": [
+      "Java",
+      "JavaScript",
+      "TypeScript",
+      "C",
+      "C",
+      "Python"
+    ],
+    "Работнапозиција": [
+      "ITStrategy&Consultancy",
+      "AffordableProductDevelopment",
+      "TechnicalSupport",
+      "CustomerCare",
+      "Developmentteams",
+      "ArtificialIntelligence",
+      "DataScience",
+      "BlockChain"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "AxaptaMasters",
+    "Годинанаосновање": 2013,
+    "Брнавработени": "300",
+    "Програмскијазици": [
+      "C#",
+      "NET",
+      "JavaScript",
+      "SQL",
+      "ASPNET"
+    ],
+    "Работнапозиција": [
+      "SoftwareDeveloper",
+      "DataAnalyst"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Iborn",
+    "Годинанаосновање": 2012,
+    "Брнавработени": "100",
+    "Програмскијазици": [
+      "Java",
+      "JavaScript",
+      "SQL",
+      "Ruby",
+      "PHP",
+      "Swift",
+      "Go",
+      "Objective-C",
+      "C",
+      "PowerShell"
+    ],
+    "Работнапозиција": [
+      "Software",
+      "ITServices",
+      "ITConsulting"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "PolarCape",
+    "Годинанаосновање": 2010,
+    "Брнавработени": 70,
+    "Програмскијазици": [
+      "Java",
+      "JavaScript",
+      "TypeScript",
+      "NET"
+    ],
+    "Работнапозиција": [
+      "Softwareengineer",
+      "AIspecialist",
+      "ITServices",
+      "ITConsulting"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "CosmicDevelopment",
+    "Годинанаосновање": 2011,
+    "Брнавработени": "250",
+    "Програмскијазици": [
+      "Python",
+      "Java",
+      "C",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Vuejs",
+      "Angular"
+    ],
+    "Работнапозиција": [
+      "WebDevelopment",
+      "MobileAppDevelopment",
+      "SoftwareDevelopment",
+      "Front-End",
+      "Back-End",
+      "SocialMediaManagement",
+      "DigitalMarketing"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "AmbitiousSolutions",
+    "Годинанаосновање": 2018,
+    "Брнавработени": "50",
+    "Програмскијазици": [
+      "Python",
+      "Java/Kotlin",
+      "C#",
+      "JavaScript(ReactorAngular)"
+    ],
+    "Работнапозиција": [
+      "Mobileappdevelopment",
+      "Softwaredevelopment/solutions",
+      "Digitalization"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Eterative",
+    "Брнавработени": 12,
+    "Програмскијазици": [
+      "Java",
+      "Python",
+      "JavaScript",
+      "C#",
+      "SQL",
+      "Unity",
+      "Phaser",
+      "OpenGL"
+    ],
+    "Работнапозиција": [
+      "SoftwareDevelopment",
+      "ITService",
+      "ITConsulting",
+      "Games"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "QuantoxTechnology",
+    "Годинанаосновање": 2006,
+    "Брнавработени": "500",
+    "Програмскијазици": [
+      "PHP",
+      "JavaScript",
+      "Java",
+      "C#",
+      "NET",
+      "Swift"
+    ],
+    "Работнапозиција": [
+      "SoftwareDevelopment",
+      "ITSupport",
+      "CloudAndInfrastructure",
+      "Data",
+      "AI",
+      "DigitalProduction"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Damilah",
+    "Годинанаосновање": 2021,
+    "Брнавработени": "150",
+    "Програмскијазици": [
+      "Agile",
+      "XP",
+      "Microsoft",
+      "Azure",
+      "EdTech",
+      "SCRUM",
+      "CDD",
+      "netcore",
+      "React",
+      "Javascript"
+    ],
+    "Работнапозиција": [
+      "SoftwareEngineers",
+      "Softwaretransformation",
+      "Front-End"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "ITQuarks",
+    "Годинанаосновање": 2016,
+    "Брнавработени": "10",
+    "Програмскијазици": [
+      "MachineLearning",
+      "Nodejs",
+      "C",
+      "BigData"
+    ],
+    "Работнапозиција": [
+      "SoftwareEngineer",
+      "InformationTechnology&Services"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "StepUp",
+    "Годинанаосновање": 2017,
+    "Брнавработени": "10",
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Endava",
+    "Годинанаосновање": 2000,
+    "Брнавработени": "350",
+    "Програмскијазици": [
+      "Java",
+      "JavaScript",
+      "NET"
+    ],
+    "Работнапозиција": [
+      "SoftwareEngineer",
+      "PythonDeveloper",
+      "CloudEngineer",
+      "NETDeveloper"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Technoperia",
+    "Годинанаосновање": 2013,
+    "Брнавработени": 46,
+    "Програмскијазици": [
+      "Java",
+      "JavaScript",
+      "TypeScript",
+      "C",
+      "C",
+      "Python"
+    ],
+    "Работнапозиција": [
+      "NativeDeveloper",
+      "SoftwareEngineer",
+      "NETDeveloper",
+      "SoftwareDeveloper",
+      "Front-EndDeveloper"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "MCA",
+    "Годинанаосновање": 2008,
+    "Брнавработени": 114,
+    "Програмскијазици": [
+      "Java",
+      "JavaScript",
+      "TypeScript",
+      "C",
+      "Python"
+    ],
+    "Работнапозиција": [
+      "SoftwareEngineer",
+      "NETDeveloper",
+      "SoftwareDeveloper",
+      "WebDeveloper",
+      "FullStackDeveloper",
+      "QASoftwareTester",
+      "MobileDeveloper"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Asee",
+    "Годинанаосновање": 2007,
+    "Брнавработени": 800,
+    "Програмскијазици": [
+      "Java",
+      "PHP",
+      "JavaScript",
+      "SQL"
+    ],
+    "Работнапозиција": [
+      "SoftwareEngineer"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "HiTech",
+    "Годинанаосновање": 1981,
+    "Брнавработени": 200,
+    "Програмскијазици": [
+      "Java",
+      "JavaScript",
+      "TypeScript",
+      "C"
+    ],
+    "Работнапозиција": [
+      "SoftwareEngineer",
+      "NETDeveloper",
+      "SoftwareDeveloper",
+      "WebDeveloper",
+      "CAMEngineer",
+      "PHPDeveloper"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Telekom",
+    "Годинанаосновање": 2001,
+    "Брнавработени": "5000",
+    "Програмскијазици": [
+      "Python",
+      "R",
+      "SQL",
+      "JavaScript",
+      "Nodejs"
+    ],
+    "Работнапозиција": [
+      "DataScientist",
+      "CyberSecurityIntern",
+      "FrontEndDeveloper",
+      "BackEndDeveloper",
+      "SoftwareEngineer",
+      "SoftwareDeveloper",
+      "JavaDeveloper",
+      "FrontendWebDeveloper",
+      "FullStackDeveloper"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "CodeIT",
+    "Годинанаосновање": 2012,
+    "Брнавработени": 50,
+    "Програмскијазици": [
+      "Java",
+      "JavaScript",
+      "C",
+      "C"
+    ],
+    "Работнапозиција": [
+      "SoftwareEngineer",
+      "NETDeveloper",
+      "SoftwareDeveloper",
+      "WebDeveloper"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Telelink",
+    "Годинанаосновање": 2007,
+    "Брнавработени": 200,
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Infinum",
+    "Годинанаосновање": 2005,
+    "Брнавработени": 377,
+    "Програмскијазици": [
+      "Java",
+      "JavaScript",
+      "C"
+    ],
+    "Работнапозиција": [
+      "SoftwareEngineer",
+      "SoftwareTester",
+      "iOSEngineer",
+      "SoftwareDeveloper",
+      "JavaScriptEngineer",
+      "FlutterEngineer",
+      "AndroidDeveloper",
+      "Fullstack",
+      "Programmer",
+      "JavaScriptEngineer",
+      "ProjectManager"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "InPlayer",
+    "Годинанаосновање": 2010,
+    "Брнавработени": 200,
+    "Програмскијазици": [
+      "Java",
+      "JavaScript",
+      "OOP"
+    ],
+    "Работнапозиција": [
+      "PHPDeveloper",
+      "SoftwareDeveloper",
+      "FrontEnd",
+      "SoftwareEngineer",
+      "QAEngineer",
+      "PlatformEngineer",
+      "iOSDeveloper",
+      "DataAnalyst"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Teamcubate",
+    "Годинанаосновање": 2017,
+    "Брнавработени": 200,
+    "Програмскијазици": [
+      "Java",
+      "JavaScript",
+      "OOP",
+      "TypeScript"
+    ],
+    "Работнапозиција": [
+      "SoftwareDeveloper",
+      "SolutionsEngineer",
+      "SoftwareEngineer",
+      "FullStack",
+      "Dynamics365CEDeveloper"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Solutionade",
+    "Годинанаосновање": 2016,
+    "Брнавработени": 50,
+    "Програмскијазици": [
+      "JavaScript",
+      "C",
+      "Java"
+    ],
+    "Работнапозиција": [
+      "SoftwareDeveloper",
+      "SolutionsEngineer",
+      "SoftwareEngineer",
+      "FullStack",
+      "Dynamics365CEDeveloper"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Accent",
+    "Годинанаосновање": 1995,
+    "Брнавработени": 80,
+    "Програмскијазици": [
+      "JavaScript",
+      "Java",
+      "Bootstrap",
+      "SQL"
+    ],
+    "Работнапозиција": [
+      "SoftwareDeveloper"
+    ],
+    "Локација": [
+      "Скопје",
+      "Струмица"
+    ]
+  },
+  {
+    "ИменаКомпанија": "X3MLabs",
+    "Годинанаосновање": 2008,
+    "Брнавработени": 50,
+    "Програмскијазици": [
+      "Java",
+      "JavaScript",
+      "C"
+    ],
+    "Работнапозиција": [
+      "SoftwareEngineer",
+      "SoftwareDeveloper",
+      "SoftwareTesting",
+      "FullStack",
+      "JavaScriptDeveloper"
+    ],
+    "Локација": "Битола"
+  },
+  {
+    "ИменаКомпанија": "Kimicom",
+    "Годинанаосновање": 2008,
+    "Брнавработени": 50,
+    "Програмскијазици": [
+      "JavaScript",
+      "TypeScript"
+    ],
+    "Работнапозиција": [
+      "WebDevelopment",
+      "WebDesign",
+      "Marketing",
+      "AppDevelopment",
+      "ProductDesign",
+      "WebIntegrations",
+      "SystemIntegrations",
+      "DevOps"
+    ],
+    "Локација": "Битола"
+  },
+  {
+    "ИменаКомпанија": "BestwaySolutions",
+    "Годинанаосновање": 2019,
+    "Брнавработени": 50,
+    "Програмскијазици": [
+      "Java",
+      "JavaScript",
+      "Python",
+      "SQL"
+    ],
+    "Работнапозиција": [
+      "JuniorDeveloper",
+      "ApplicationDeveloper"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "DigitexSystems",
+    "Брнавработени": 10,
+    "Програмскијазици": [
+      "C",
+      "JavaScript",
+      "Java"
+    ],
+    "Работнапозиција": [
+      "SoftwareEngineer",
+      "WebDeveloper"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "AlosysCommunication",
+    "Годинанаосновање": 1995,
+    "Брнавработени": 200,
+    "Програмскијазици": [
+      "Java"
+    ],
+    "Работнапозиција": [
+      "JavaDeveloper",
+      "Back-endDeveloper",
+      "SoftwareEngineer",
+      "SoftwareTester"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Ехо",
+    "Годинанаосновање": 2015,
+    "Брнавработени": 50,
+    "Програмскијазици": [
+      "JavaScript"
+    ],
+    "Работнапозиција": [
+      "iOSDeveloper",
+      "ApplicationDeveloper",
+      "SoftwareDeveloper",
+      "Frontenddeveloper"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Brainster",
+    "Годинанаосновање": 2015,
+    "Брнавработени": 200,
+    "Програмскијазици": [
+      "JavaScript"
+    ],
+    "Работнапозиција": [
+      "DataAnalyst",
+      "SoftwareTester",
+      "FullStack",
+      "QATester"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Valtech",
+    "Годинанаосновање": 1993,
+    "Брнавработени": 10000,
+    "Програмскијазици": [
+      "Java",
+      "JavaScript"
+    ],
+    "Работнапозиција": [
+      "SoftwareEngineer",
+      "DevOps"
+    ],
+    "Локација": [
+      "Битола",
+      "Скопје"
+    ]
+  },
+  {
+    "ИменаКомпанија": "CodeSTREETS",
+    "Годинанаосновање": 2019,
+    "Брнавработени": 35,
+    "Програмскијазици": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Java"
+    ],
+    "Работнапозиција": [
+      "JAVADEVELOPER"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "RLDatix&Allocate",
+    "Брнавработени": 350,
+    "Програмскијазици": [
+      "AdobeXD",
+      "Sketch",
+      "Figma"
+    ],
+    "Работнапозиција": [
+      "UI/UX",
+      "Businessdevelopment"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Xessable",
+    "Годинанаосновање": 2017,
+    "Брнавработени": 30,
+    "Програмскијазици": [
+      "Angular",
+      "NET",
+      "Vuejs",
+      "Azure"
+    ],
+    "Работнапозиција": [
+      "Softwaredevelopment"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Pabau",
+    "Годинанаосновање": 2012,
+    "Брнавработени": 200,
+    "Програмскијазици": [
+      "Java",
+      "JavaScript",
+      "Ruby",
+      "Scrum"
+    ],
+    "Работнапозиција": [
+      "QAAutomationEngineer",
+      "DataEntrySpecialist"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "InfiniteSolutions",
+    "Годинанаосновање": 1999,
+    "Брнавработени": "200",
+    "Програмскијазици": [
+      "Python",
+      "Java",
+      "C",
+      "C#",
+      "SQL",
+      "JavaScript",
+      "NET"
+    ],
+    "Работнапозиција": [
+      "Software",
+      "Data",
+      "AI",
+      "BusinessApplications",
+      "Digitaltransformation"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Inteligenta",
+    "Годинанаосновање": 2018,
+    "Брнавработени": "50",
+    "Програмскијазици": [
+      "Python",
+      "Java",
+      "C",
+      "C#"
+    ],
+    "Работнапозиција": [
+      "SoftwareAndDataEngineering"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "CodeitSolution",
+    "Годинанаосновање": 2012,
+    "Брнавработени": 12,
+    "Програмскијазици": [
+      "Java",
+      "SpringBoot",
+      "Hibernate",
+      "Angular",
+      "Vuejs",
+      "Reactjs",
+      "Nodejs",
+      "Bootstrap"
+    ],
+    "Работнапозиција": [
+      "Softwaredevelopment",
+      "SystemArchitecture",
+      "UX&UIdesign",
+      "ProjectManagement",
+      "QA",
+      "support"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "EmitKnowledge",
+    "Годинанаосновање": 2012,
+    "Брнавработени": "35",
+    "Програмскијазици": [
+      "Java",
+      "C#",
+      "Javascript"
+    ],
+    "Работнапозиција": [
+      "CustomSoftwareDevelopment",
+      "ProductDevelopment",
+      "Systemintegrations"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "CodeChem",
+    "Годинанаосновање": 2015,
+    "Брнавработени": 85,
+    "Програмскијазици": [
+      "Cypress",
+      "JavaScript",
+      "NETCore",
+      "ASPNETMVC",
+      "React",
+      "Redux",
+      "SWR",
+      "Nodejs",
+      "AWS",
+      "Azure",
+      "Qt",
+      "EmbeddedLinux"
+    ],
+    "Работнапозиција": [
+      "QAAutomationEngineer",
+      "NETEngineer",
+      "Full-stackDeveloper",
+      "DevOpsEngineer",
+      "EmbeddedLinuxEngineer(Qt)"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "WebFactory",
+    "Годинанаосновање": 2009,
+    "Брнавработени": 70,
+    "Програмскијазици": [
+      "JavaScript",
+      "TypeScript",
+      "Sass",
+      "Bootstrap",
+      "Angular",
+      "AWS",
+      "GoogleCloud",
+      "Azure",
+      "Java"
+    ],
+    "Работнапозиција": [
+      "Front-endDeveloper",
+      "Back-endDeveloper",
+      "DevOpsEngineer"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "ОливеГТМ",
+    "Годинанаосновање": 2007,
+    "Брнавработени": 30,
+    "Програмскијазици": [
+      "JavaScript/React",
+      "Ruby"
+    ],
+    "Работнапозиција": [
+      "SoftwareEngineer",
+      "Front-endDeveloper"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "MellonSolutions",
+    "Годинанаосновање": 1994,
+    "Брнавработени": 75,
+    "Програмскијазици": [
+      "VBNET",
+      "C#",
+      "NET",
+      "Java",
+      "PowerShell",
+      "Python",
+      "AWS"
+    ],
+    "Работнапозиција": [
+      "SoftwareEngineer",
+      "ITSystemEngineer"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Sigma-SB",
+    "Годинанаосновање": 1995,
+    "Брнавработени": 60,
+    "Програмскијазици": [
+      "Delphi",
+      "SQL",
+      "C#",
+      "JavaScript",
+      "Java"
+    ],
+    "Работнапозиција": [
+      "SoftwareDevelopment"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "PanteleonGS",
+    "Годинанаосновање": 2014,
+    "Брнавработени": 90,
+    "Програмскијазици": [
+      "Python",
+      "SQL",
+      "JavaScript",
+      "Ruby",
+      "Java"
+    ],
+    "Работнапозиција": [
+      "BusinessDevelopment",
+      "SoftwareDevelopment"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "BEELIVIO",
+    "Годинанаосновање": 2018,
+    "Брнавработени": 30,
+    "Програмскијазици": [
+      "PHP",
+      "Java",
+      "JavaScript"
+    ],
+    "Работнапозиција": [
+      "SoftwareDevelopment"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "xSoft",
+    "Годинанаосновање": 2009,
+    "Брнавработени": 36,
+    "Програмскијазици": [
+      "Python",
+      "Java",
+      "JavaScript",
+      "C",
+      "C#",
+      "TypeScript",
+      "ActionScript",
+      "Ruby",
+      "Go"
+    ],
+    "Работнапозиција": [
+      "SoftwareDevelopment",
+      "RichInternetApps",
+      "ResponsiveWeb",
+      "ProductEngineering"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Merot",
+    "Годинанаосновање": 2011,
+    "Брнавработени": 18,
+    "Програмскијазици": [
+      "Python",
+      "Java",
+      "JavaScript",
+      "PHP"
+    ],
+    "Работнапозиција": [
+      "SoftwareDevelopment"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "BabylonSoftwareSolution",
+    "Годинанаосновање": 2003,
+    "Брнавработени": 30,
+    "Програмскијазици": [
+      "Python",
+      "Java",
+      "JavaScript"
+    ],
+    "Работнапозиција": [
+      "SoftwareDevelopment"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "PixyleAI",
+    "Годинанаосновање": 2017,
+    "Брнавработени": 40,
+    "Програмскијазици": [
+      "SQL",
+      "Python",
+      "R",
+      "ApacheHadoop"
+    ],
+    "Работнапозиција": [
+      "DataDeveloper"
+    ],
+    "Локација": "Штип"
+  },
+  {
+    "ИменаКомпанија": "Megantic",
+    "Годинанаосновање": 2012,
+    "Брнавработени": 60,
+    "Програмскијазици": [
+      "PHP",
+      "MySQL",
+      "JavaScript"
+    ],
+    "Работнапозиција": [
+      "MagentoDeveloper",
+      "WordPressDeveloper"
+    ],
+    "Локација": "Струмица"
+  },
+  {
+    "ИменаКомпанија": "MED-REP",
+    "Годинанаосновање": 2017,
+    "Брнавработени": 10,
+    "Програмскијазици": [
+      "Python",
+      "R",
+      "Java",
+      "JavaScript"
+    ],
+    "Работнапозиција": [
+      "DevelopmentofPharmaMarketingsolutions"
+    ],
+    "Локација": "Струмица"
+  },
+  {
+    "ИменаКомпанија": "ValosoHub",
+    "Годинанаосновање": 2013,
+    "Брнавработени": 16,
+    "Програмскијазици": [
+      "Sketch",
+      "Figma"
+    ],
+    "Работнапозиција": [
+      "UI/UX"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "GSIX",
+    "Годинанаосновање": 2015,
+    "Брнавработени": 44,
+    "Програмскијазици": [
+      "Python",
+      "Java",
+      "JavaScript",
+      "C",
+      "C#",
+      "Ruby",
+      "Reactjs",
+      "Angular"
+    ],
+    "Работнапозиција": [
+      "SoftwareDeveloper"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Neocom",
+    "Годинанаосновање": 1990,
+    "Брнавработени": 250,
+    "Програмскијазици": [
+      "Python",
+      "Java",
+      "JavaScript",
+      "C",
+      "C#",
+      "R",
+      "Scala",
+      "SQL"
+    ],
+    "Работнапозиција": [
+      "SoftwareDeveloper",
+      "DataDeveloper"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "PolarCapeConsulting",
+    "Годинанаосновање": 2010,
+    "Брнавработени": 63,
+    "Програмскијазици": [
+      "NET",
+      "PHP",
+      "Java",
+      "aws",
+      "TypeScript",
+      "Vuejs",
+      "React",
+      "Angular",
+      "Python"
+    ],
+    "Работнапозиција": [
+      "JavaDeveloper",
+      "DataDeveloper"
+    ],
+    "Локација": [
+      "Скопје",
+      "Битола"
+    ]
+  },
+  {
+    "ИменаКомпанија": "SymphonySolutions",
+    "Годинанаосновање": 2009,
+    "Брнавработени": 25,
+    "Програмскијазици": [
+      "NET",
+      "C#",
+      "Python",
+      "Django",
+      "Figma",
+      "AdobeXD",
+      "JavaScript",
+      "React",
+      "Typescript",
+      "NextJS"
+    ],
+    "Работнапозиција": [
+      "FullStackDeveloper",
+      "UI/UXDesigner",
+      "Front-endDeveloper",
+      "PythonEngineer",
+      "DataEngineerwithNet"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "iwmnetwork",
+    "Годинанаосновање": 2008,
+    "Брнавработени": 23,
+    "Програмскијазици": [
+      "JavaScript",
+      "Reactjs",
+      "Vuejs",
+      "Angular",
+      "PHP",
+      "Ruby",
+      "Python",
+      "Django",
+      "AdobeXD",
+      "Figma",
+      "InVision",
+      "R",
+      "SQL"
+    ],
+    "Работнапозиција": [
+      "WebDesign&Development",
+      "UXDesign",
+      "DataAnalytics",
+      "SoftwareDevelopment"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "IntelligentNetworkSolutions",
+    "Годинанаосновање": 2007,
+    "Брнавработени": 18,
+    "Програмскијазици": [
+      "C#",
+      "SQL",
+      "JavaScript",
+      "AJAX",
+      "jQuery"
+    ],
+    "Работнапозиција": [
+      "NETdev"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "WriterityInc",
+    "Годинанаосновање": 2017,
+    "Брнавработени": 10,
+    "Програмскијазици": [
+      "Swift",
+      "Vuejs",
+      "aws"
+    ],
+    "Работнапозиција": [
+      "SystemDevelopment"
+    ],
+    "Локација": "Охрид"
+  },
+  {
+    "ИменаКомпанија": "MatrixGlobal",
+    "Годинанаосновање": 2007,
+    "Брнавработени": 70,
+    "Програмскијазици": [
+      "Java",
+      "NET",
+      "C#",
+      "C",
+      "C",
+      "PHP",
+      "JavaScript",
+      "JQuery",
+      "Ajax",
+      "SQL",
+      "2D&3Danimators/developers"
+    ],
+    "Работнапозиција": [
+      "SoftwareDevelopers",
+      "Manual&AutomatedQATesting",
+      "Integration",
+      "Network&DevOps",
+      "UI/UX"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "GrabIT",
+    "Годинанаосновање": 2005,
+    "Брнавработени": 50,
+    "Програмскијазици": [
+      "Python",
+      "Java",
+      "JavaScript",
+      "C",
+      "C#",
+      "R",
+      "SQL",
+      "Scala"
+    ],
+    "Работнапозиција": [
+      "SoftwareEngineering",
+      "DataScience"
+    ],
+    "Локација": "Прилеп"
+  },
+  {
+    "ИменаКомпанија": "3PDevelopment",
+    "Годинанаосновање": 2010,
+    "Брнавработени": 377,
+    "Програмскијазици": [
+      "Slack",
+      "Figma",
+      "AdobeCC",
+      "TypeScript",
+      "Jest",
+      "SWR",
+      "React"
+    ],
+    "Работнапозиција": [
+      "UI/UX",
+      "SoftwareTester",
+      "ReactEngineers"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Adeva",
+    "Годинанаосновање": 2005,
+    "Брнавработени": 80,
+    "Програмскијазици": [
+      "JavaScript",
+      "Java",
+      "Python",
+      "C#",
+      "C",
+      "R",
+      "SQL",
+      "TypeScript",
+      "Figma",
+      "Sketch"
+    ],
+    "Работнапозиција": [
+      "SoftwareEngineers",
+      "DataExperts",
+      "AIExperts",
+      "QAEngineers",
+      "ProductDesigners"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "ITGMA",
+    "Годинанаосновање": 2009,
+    "Брнавработени": 35,
+    "Програмскијазици": [
+      "Typescript",
+      "Python",
+      "ServerLess",
+      "CloudComputing",
+      "ReactJS",
+      "AngularJS",
+      "NET",
+      "SQL",
+      "AWS",
+      "Azure",
+      "AWSLambda",
+      "JavaJ2EE"
+    ],
+    "Работнапозиција": [
+      "CloudDeveloper",
+      "FullStackDeveloper",
+      "CloudEngineer/DevOps",
+      "JAVADeveloper",
+      "QAAutomationEngineer"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "PublicCloudGroup",
+    "Годинанаосновање": 2021,
+    "Брнавработени": 10,
+    "Програмскијазици": [
+      "AWS",
+      "MicrosoftAzure",
+      "JavaScript",
+      "Typescript",
+      "CloudComputing"
+    ],
+    "Работнапозиција": [
+      "FullStackDeveloper",
+      "CloudDeveloper",
+      "BusinessAnalysts",
+      "Data&AI"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "Edusoft",
+    "Годинанаосновање": 1996,
+    "Брнавработени": 24,
+    "Програмскијазици": [
+      "C#",
+      "JavaScript",
+      "Java",
+      "Delphi",
+      "SQL",
+      "Ruby"
+    ],
+    "Работнапозиција": [
+      "Webdeveloper",
+      "Softwareengineer",
+      "ITTechnician",
+      "Datascientist",
+      "CybersecurityAnalyst",
+      "UX/UIdesign",
+      "Productmanager"
+    ],
+    "Локација": "Скопје"
+  },
+  {
+    "ИменаКомпанија": "ТехнолошкиПаркTechUp",
+    "Годинанаосновање": 2019,
+    "Брнавработени": 13,
+    "Програмскијазици": [
+      "JavaScript",
+      "Java",
+      "PHP",
+      "SQL",
+      "TypeScript"
+    ],
+    "Работнапозиција": [
+      "SoftwareDevelopment",
+      "UI/UX",
+      "Front-endDeveloper",
+      "FullStackDeveloper"
+    ],
+    "Локација": "Велес"
+  }
+]

@@ -1,0 +1,80 @@
+:root {
+    /*--text: #101916;*/
+    --header: #B8860BFF;
+    /*--background: #e2e4d8;*/
+    /*--primary: #345043;*/
+    /*--secondary: rgb(100, 130, 116);*/
+    /*--accent: #aec1b5;*/
+
+    --text: #000000;
+    --background: #f5f5f5;
+    --primary: #ccb9ac;
+    --secondary: #d8c9ba;
+    --accent: #e5e1d8;
+
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--background);
+    /*color: var(--text);*/
+}
+
+
+
+
+.text {
+    color: var(--text);
+    font-family: 'Poppins', ui-sans-serif;
+}
+.middleText {
+    width: 20%;
+    font-family: 'Poppins', ui-sans-serif;
+    text-align: center;
+    color: darkgoldenrod;
+}
+.middleText i {
+    font-size: 2rem;
+}
+.middleText h3 {
+    margin-top: 0;
+    font-size: 3rem;
+}
+.middleText p {
+    font-size: 1.15rem;
+    color: #101916;
+}
+
+
+
+.flex {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+}
+.dim {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(1.5px);
+    /*background: linear-gradient(rgba(0, 0, 0, 0.0) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0));*/
+}
+
+main {
+    width: 100vw;
+    /*height: 1000px;*/
+    background: var(--background);
+}

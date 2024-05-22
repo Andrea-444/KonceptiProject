@@ -1,0 +1,41 @@
+#comapaniesName {
+    margin-top: 3vh;
+    width: 100vw;
+    height: 75vh;
+
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+
+    background: var(--background);
+}
+
+.bubble {
+    fill-opacity: 0.6;
+    stroke: #fff;
+}
+
+.bubble:hover {
+    fill-opacity: 1.0;
+}
+
+.label {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    fill: #000;
+    pointer-events: none;
+}
+
+
+
+
+#itKompanii {
+}
+#itKompanii h1 {
+    text-align: center;
+    font-size: 5rem;
+    color: var(--header);
+    text-decoration: underline;
+
+    border-bottom: 4px solid var(--header);
+}
