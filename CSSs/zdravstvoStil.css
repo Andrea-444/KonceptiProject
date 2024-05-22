@@ -4,7 +4,7 @@
 
     background: url("../images/zdravstvo.jpg");
     background-size: cover;
-    /*background-position: ;*/
+    background-position: center 0;
 
     display: flex;
     justify-content: center;
@@ -14,7 +14,7 @@
     margin-top: 5%;
     text-transform: uppercase;
     color: var(--header);
-    font-size: 17rem;
+    font-size: 15vw;
     font-family: 'Poppins', ui-sans-serif;
     text-shadow: -20px 20px 40px rgba(0, 0, 0, 0.8);
     margin-bottom: 0;
@@ -43,7 +43,8 @@
     background: url("../images/zdravstvoObj.png");
     background-size: cover;
     background-repeat: no-repeat;
-    transition: background-position 0.5s ease-in;
+    background-position: center 0;
+    transition: all 0.5s ease-in;
 }
 #zdrObj:hover {
     background-position: 0 5%;

@@ -17,7 +17,7 @@
     text-align: center;
     text-transform: uppercase;
     color: var(--header);
-    font-size: 15rem;
+    font-size: 14vw;
     font-family: 'Poppins', ui-sans-serif;
     text-shadow: -20px 20px 40px rgba(0, 0, 0, 0.8);
 }
@@ -46,11 +46,13 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    transition: background-position 0.5s ease-in;
+    transition: all 0.5s ease-in;
 }
 #itIndustryObj:hover {
-    width: 102vw;
-    height: 98vh;
+    top: -1%;
+    left: -1%;
+    width: 101.5vw;
+    height: 98.5vh;
 
     /*background-position: center 52%;*/
     transition: all 0.5s ease-in;

@@ -1,0 +1,25 @@
+#parlamentBg {
+    width: 100vw;
+    height: 100vh;
+
+    /*background-image: url("img/parlamentBg.png");*/
+    background-image: url("https://images.unsplash.com/photo-1533483996897-a8dde9930141?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    background-position: center center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#parlamentBg h1{
+    margin-top: 0;
+    margin-left: 3vw;
+
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--header);
+    font-size: 14vw;
+    font-family: 'Poppins', ui-sans-serif;
+    text-shadow: -20px 20px 40px rgba(0, 0, 0, 0.8);
+}

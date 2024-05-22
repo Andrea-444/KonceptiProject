@@ -4,8 +4,8 @@
     margin-bottom: 5vh;
 
     background: url("../images/college.jpg");
-    background-size: contain;
-    /*background-position: ;*/
+    background-size: cover;
+    background-position: center center;
 
     display: flex;
     flex-direction: column;
@@ -15,7 +15,7 @@
 #obrzBg #obrzText h1{
     text-transform: uppercase;
     color: var(--header);
-    font-size: 15rem;
+    font-size: 12vw;
     font-family: 'Poppins', ui-sans-serif;
     text-shadow: -20px 20px 40px rgba(0, 0, 0, 0.8);
 }
@@ -41,5 +41,6 @@
     left: 0;
     background: url("../images/collegeobj.png");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
+    background-position: center center;
 }
