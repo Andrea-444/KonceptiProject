@@ -37,7 +37,8 @@
 // Set up dimensions and radius for the bubble chart
 async function createItBubbles(data) {
     // console.log(data)
-    const width = window.innerWidth;
+    let innerWidth1 = window.innerWidth;
+    const width = innerWidth1;
     const height = window.innerHeight * 0.8;
 
 // Create SVG element
@@ -49,10 +50,46 @@ async function createItBubbles(data) {
     const color = d3.scaleOrdinal(d3.schemeCategory10);
 
 // Define bubble simulation
+    let strX = 0.00485
+    let strY = 0.06
+    let strCollide = 12;
+    let heightDevisitor = 2.1;
+    if (innerWidth <= 1650) {
+        if (innerWidth1 <= 1500) {
+            // heightDevisitor = 1.8
+            strY = 0.05
+            strCollide = 10
+        }
+        if (innerWidth1 <= 1400) {
+            // heightDevisitor = 1.8
+            strY = 0.03
+            strCollide = 9
+        }
+        if (innerWidth1 <= 1200) {
+            heightDevisitor = 1.8
+            strY = 0.02
+            strCollide = 6
+        }
+        if (innerWidth1 <= 1000) {
+            heightDevisitor = 1.8
+            strY = 0.02
+            strCollide = 5
+        }
+        if (innerWidth1 <= window.innerHeight) {
+            strY = 0.00615
+            strCollide = 8
+            heightDevisitor = 1.1
+        }
+        if (innerWidth1 <= window.innerHeight - 300) {
+            heightDevisitor = 1
+            strY = 0.005
+            strCollide = 9
+        }
+    }
     const simulation = d3.forceSimulation(data)
-        .force("x", d3.forceX(width / 0.9).strength(0.005))
-        .force("y", d3.forceY(height / 2.2).strength(0.07))
-        .force("collide", d3.forceCollide(d => d.employees * 0.05 + 20))
+        .force("x", d3.forceX(width / 0.9).strength(strX))
+        .force("y", d3.forceY(height / heightDevisitor).strength(strY))
+        .force("collide", d3.forceCollide(d => d.employees * 0.05 + strCollide))
         .stop();
 
     for (let i = 0; i < 120; ++i) simulation.tick();
@@ -97,7 +134,7 @@ async function createItBubbles(data) {
 }
 
 async function fetchItData() {
-    let data = await fetchData("./podatoci/itIndustrija.json")
+    let data = await fetchData("https://iammistake.github.io/KonceptiProject/podatoci/itIndustrija.json")
     let companies = []
     for (let i = 0; i < data.length; i++) {
         let tempObj = {}
@@ -173,7 +210,7 @@ function addItClickEvent(data) {
 
                     about.push(data[i]["Годинанаосновање"])
                     about.push(data[i]["Брнавработени"])
-                    about.push(data[i]["Програмскијазици"].length)
+                    about.push(data[i]["Програмскијазици"])
                     about.push(data[i]["Работнапозиција"])
                 }
             }

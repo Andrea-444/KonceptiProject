@@ -50,15 +50,16 @@ function changeSchool(company, marker, about) {
     let newCompany = company
     selectedCompany = newCompany
     spawnLocationMap(marker)
-    makeGraph(["Karpos 1, Skopje", 1000, 100, 11.5, [500, 550, 600, 850, 700, 750, 800, 740, 800, 600]])
-    makeLineChart(["Karpos 1, Skopje", 1000, 100, 11.5, [500, 550, 600, 850, 700, 750, 800, 740, 800, 600]])
-    makePieChart(["Karpos 1, Skopje", 1000, 100, 11.5, [500, 550, 600, 850, 700, 750, 800, 740, 800, 600]])
+    makeGraph([about[2], generateRandomNumbers(about[2].length)])
+    // makeLineChart(["Karpos 1, Skopje", 1000, 100, 11.5, [500, 550, 600, 850, 700, 750, 800, 740, 800, 600]])
+    makePieChartSlim(about[2])
+    makePieChart(about[3])
 
     const abtSch = document.getElementById('aboutSchool')
     abtSch.innerHTML = `<h3>About ${newCompany}</h3>
     <p><i class="fa-solid fa-school"></i> Година на основање: ${about[0]}</p>
     <p><i class="fa-solid fa-user"></i> Бр. на вработени: ${about[1]}</p>
-    <p><i class="fa-solid fa-chalkboard-user"></i> Програмски јазици: ${about[2]}</p>
+    <p><i class="fa-solid fa-chalkboard-user"></i> Програмски јазици: ${about[2].length}</p>
     <p><i class="fa-solid fa-book"></i> Работни позиции:</p>`
     for (let i = 0; i < about[3].length; i++) {
         if (i > 3) break
@@ -66,21 +67,19 @@ function changeSchool(company, marker, about) {
     }
 }
 
-function makeGraph(listAboutSchool) {
+function makeGraph(lista) {
     const deleteCanvas = document.getElementById('studentTeacherPillar')
     deleteCanvas.innerHTML = `<canvas id="aboutSchoolOptionsGraph" width="30" height="30"></canvas>`
 
 // Sample data for the graph
-    let teachersData = listAboutSchool[2]
-    let studentsData = listAboutSchool[1]
     const aboutSchoolData = {
-        labels: ['Teachers', 'Students'],
+        labels: lista[0],
         datasets: [{
             label: 'Number',
             backgroundColor: 'rgba(255,255,255,0.7)', // Bar color
             borderColor: 'rgb(58,100,45)',
             borderWidth: 2,
-            data: [teachersData, studentsData] // Data values
+            data: lista[1] // Data values
         }]
     };
 
@@ -149,26 +148,112 @@ function makeLineChart(listAboutSchool) {
     });
 }
 
-function makePieChart(listAboutSchool) {
+function makePieChartSlim(listLanguages) {
+
+    let data = []
+    let tmpV = 100 / listLanguages.length
+    for (let i = 0; i < listLanguages.length; i++) {
+        let tmp = {}
+        tmp.label = listLanguages[i]
+        tmp.value = tmpV
+        data.push(tmp)
+    }
+
+// Set up dimensions and radius for the donut chart
+    const pieSlimDiv = document.getElementById('studentGrowth')
+    pieSlimDiv.innerHTML = `<svg id="donut-chart"></svg>`
+
+    const width = pieSlimDiv.offsetWidth;
+    const height = pieSlimDiv.offsetHeight;
+    const radius = Math.min(width, height) / 2;
+    const innerRadius = radius / 2; // For the donut chart
+
+// Set up color scale with shades of brown
+    const color = d3.scaleOrdinal()
+        .domain(data.map(d => d.label))
+        .range(["#e5e1d8", "#d8c9ba", "#ccb9ac", "#D2B48C"]);
+
+// Create the pie chart layout
+    const pie = d3.pie()
+        .value(d => d.value)
+        .sort(null);
+
+// Define arc generator
+    const arc = d3.arc()
+        .innerRadius(innerRadius)
+        .outerRadius(radius);
+
+// Create SVG element
+    const svg = d3.select("#donut-chart")
+        .append("g")
+        .attr("transform", `translate(${width / 2},${height / 2})`);
+
+// Draw the donut chart
+    const arcs = svg.selectAll(".arc")
+        .data(pie(data))
+        .enter()
+        .append("g")
+        .attr("class", "arc");
+
+// Add gradients
+    const gradients = arcs.append("linearGradient")
+        .attr("id", (d, i) => `gradient${i}`)
+        .attr("gradientUnits", "userSpaceOnUse")
+        .attr("x1", 0)
+        .attr("y1", 0)
+        .attr("x2", "100%")
+        .attr("y2", "100%");
+
+    gradients.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", (d, i) => d3.rgb(color(i)).brighter(0.5));
+
+    gradients.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", color);
+
+    arcs.append("path")
+        .attr("d", arc)
+        .attr("fill", (d, i) => `url(#gradient${i})`);
+
+// Add labels to each slice
+    arcs.append("text")
+        .attr("transform", d => `translate(${arc.centroid(d)})`)
+        .attr("text-anchor", "middle")
+        .text(d => d.data.label)
+        .attr("class", "slice");
+}
+
+function makePieChart(lista) {
     const deleteCanvas = document.getElementById('studentPieChart')
     deleteCanvas.innerHTML = `<canvas id="schoolPopulationChart" width="400" height="400"></canvas>`
 
-    let teachersData = listAboutSchool[2]
-    let studentsData = listAboutSchool[1]
+    let tmpN = 100 / lista.length
+    let tmpNlist = []
+    for (let i = 0; i < lista.length; i++) {
+        tmpNlist.push(tmpN)
+    }
+
+    const backgroundColors = [
+        'rgb(58,100,45)',
+        'rgb(45,173,104)',
+        'rgb(87,235,54)',
+        'rgb(35,210,115)',
+        'rgb(235,94,40)',
+        'rgb(235,194,54)',
+        'rgb(87,135,234)',
+        'rgb(135,54,234)',
+        'rgb(235,54,154)',
+        'rgb(54,235,214)'
+    ];
 
     const data = {
-        labels: ['Menagers', 'Employees'],
+        labels: lista,
         datasets: [{
             label: 'Company Number of Employees',
-            data: [teachersData, studentsData],
-            backgroundColor: [
-                'rgb(58,100,45)', // Green color for teachers
-                'rgb(45,173,104)' // Blue color for students
-            ],
-            borderColor: [
-                'rgb(35,210,115)',
-                'rgb(87,235,54)'
-            ],
+            data: tmpNlist,
+            backgroundColor: backgroundColors,
+            borderColor: 'rgb(255,255,255)',
             borderWidth: 1
         }]
     };
@@ -188,4 +273,13 @@ function makePieChart(listAboutSchool) {
         data: data,
         options: options
     });
+}
+
+function generateRandomNumbers(n) {
+    const randomNumbers = [];
+    for (let i = 0; i < n; i++) {
+        const randomNumber = Math.floor(Math.random() * (1000 - 100 + 1)) + 100;
+        randomNumbers.push(randomNumber);
+    }
+    return randomNumbers;
 }
