@@ -97,7 +97,7 @@ async function createItBubbles(data) {
 }
 
 async function fetchItData() {
-    let data = await fetchData("./podatoci/itIndustrija.json")
+    let data = await fetchData("./KonceptiProject/podatoci/itIndustrija.json")
     let companies = []
     for (let i = 0; i < data.length; i++) {
         let tempObj = {}
