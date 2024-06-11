@@ -10,15 +10,54 @@
     <script src="https://kit.fontawesome.com/7c76916ab4.js" crossorigin="anonymous"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <link rel="stylesheet" href="CSSs/forAll/indexStyle.css">
-    <link rel="stylesheet" href="CSSs/forAll/footer.css">
+<!--    <link rel="stylesheet" href="CSSs/forAll/footer.css">-->
+    <link rel="stylesheet" href="CSSs/forAll/newFooter.css">
     <link rel="stylesheet" href="CSSs/forAll/menu.css">
     <link rel="stylesheet" href="CSSs/turizmBgStil.css">
 
+    <script src="JAVASCRIPTs/sMyJS.js"></script>
+    <link rel="stylesheet" href="CSSs/sStyle.css">
 </head>
 <body>
 
-<div id="menu" class="flex"><i class="fa-solid fa-bars"></i></div>
+<!--<div id="menu" class="flex"><i class="fa-solid fa-bars"></i></div>-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <img src="./images/finki_52_1_2_1_62_0.png">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Почетна</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"  aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main_nav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="about.html">За нас</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Контакт</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">Сектори</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="obrazovanie.html">Образование</a></li>
+                        <li><a class="dropdown-item" href="zdravtsvo.html">Здравство</a></li>
+                        <li><a class="dropdown-item" href="ITIndustry.html">ИТ Индустрија</a></li>
+                        <li><a class="dropdown-item" href="Turizam.html">Туризам</a></li>
+                        <li><a class="dropdown-item" href="Sudstvo.html">Судство</a></li>
+                        <li><a class="dropdown-item" href="parlament.html">Парламент</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 <div id="tourizmBg">
     <h1>Туризам</h1>
 </div>
@@ -27,21 +66,71 @@
 
 </main>
 
-<footer>
-    <div class="flex text" id="dimFooter">
-        <div id="logoFooter"></div>
-        <div class="flex">
-            <div><h4>Визуелизација</h4></div>
-            <div><h4>Текст 1</h4></div>
-            <div><h4>Текст 2</h4></div>
-            <div><h4>Текст 3</h4></div>
-            <div><h4>Програмирање (понекогаш)</h4></div>
+<footer class="new_footer_area bg_color">
+    <div class="new_footer_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;">
+                        <h3 class="f-title f_600 t_color f_size_18">Стапи во контакт</h3>
+                        <p>Не пропуштајте никакви ажурирања на нашите нови шаблони и екстензии.!</p>
+                        <form action="#" class="f_subscribe_two mailchimp" method="post" novalidate="true" _lpchecked="1">
+                            <input type="text" name="EMAIL" class="form-control memail" placeholder="Email">
+                            <button class="btn btn_get btn_get_two" type="submit">Претплати се</button>
+                            <p class="mchimp-errmessage" style="display: none;"></p>
+                            <p class="mchimp-sucmessage" style="display: none;"></p>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
+                        <h3 class="f-title f_600 t_color f_size_18">Сектори</h3>
+                        <ul class="list-unstyled f_list">
+                            <li><a href="#">Образование</a></li>
+                            <li><a href="#">Здравство</a></li>
+                            <li><a href="#">ИТ Индустрија</a></li>
+                            <li><a href="#">Туризам</a></li>
+                            <li><a href="#">Судство</a></li>
+                            <li><a href="#">Парламент</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
+                        <h3 class="f-title f_600 t_color f_size_18">Помош</h3>
+                        <ul class="list-unstyled f_list">
+                            <li><a href="#">Најчесто поставувани прашања</a></li>
+                            <li><a href="#">Документација</a></li>
+                            <li><a href="#">Политика за поддршка</a></li>
+                            <li><a href="#">Приватност</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
+                        <div class="f_social_icon">
+                            <a href="#" class="fab fa-facebook"></a>
+                            <a href="#" class="fab fa-twitter"></a>
+                            <a href="#" class="fab fa-linkedin"></a>
+                            <a href="#" class="fab fa-pinterest"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="socialsFooter">
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-discord"></i></a>
+        <div class="footer_bg">
+            <div class="footer_bg_one"></div>
+            <div class="footer_bg_two"></div>
         </div>
-        <div id="copyright"><a href="#">COPYRIGHT POLICE</a></div>
+    </div>
+    <div class="footer_bottom">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-sm-7">
+                    <p >© FINKI 2024</p>
+                </div>
+            </div>
+        </div>
     </div>
 </footer>
 
