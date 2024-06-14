@@ -146,8 +146,11 @@
 }
 
 .aboutLogo{
-    padding-top: 5vh;
-    margin-left: 43vw;
+    /*padding-top: 5vh;*/
+    /*margin-left: 10vw;*/
+    width: 10vw;
+    height: 20vh;
+    margin: auto;
 }
 
 .container{
@@ -155,6 +158,7 @@
 }
 
 .images-selector  {
+    margin: auto;
     display: ruby-text;
     padding-bottom: 7vh;
 }

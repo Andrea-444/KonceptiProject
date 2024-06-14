@@ -1,39 +1,3 @@
-// const data = [
-//     { name: 'Prilep', employees: 900 },
-//     { name: 'Skopje', employees: 1200 },
-//     { name: 'Bitola', employees: 800 },
-//     { name: 'Centar', employees: 1000 },
-//     { name: 'Company E', employees: 600 },
-//     { name: 'Company G', employees: 700 },
-//     { name: 'Company N', employees: 800 },
-//     { name: 'Company M', employees: 840 },
-//     { name: 'Company 4', employees: 650 },
-//     { name: 'Company 3', employees: 620 },
-//     { name: 'Company 3', employees: 620 },
-//     { name: 'Company 3', employees: 620 },
-//     { name: 'Company 3', employees: 620 },
-//     { name: 'Company 3', employees: 620 },
-//     { name: 'Company 3', employees: 620 },
-//     { name: 'Company 3', employees: 620 },
-//     { name: 'Company 3', employees: 620 },
-//     { name: 'Company 3', employees: 620 },
-//     { name: 'Company 3', employees: 620 },
-//     { name: 'Company 3', employees: 620 },
-//     { name: 'Company 3', employees: 620 },
-//     { name: 'Company 3', employees: 620 },
-//     { name: 'Company 3', employees: 620 },
-//     { name: 'Company 3', employees: 620 },
-//     { name: 'Company 3', employees: 620 },
-//     { name: 'Company 3', employees: 620 },
-//     { name: 'Company 3', employees: 620 },
-//     { name: 'Company 3', employees: 620 },
-//     { name: 'Company 3', employees: 620 },
-//     { name: 'Company 3', employees: 620 },
-//     { name: 'Company 3', employees: 620 },
-//     { name: 'Company 2', employees: 790 },
-//     { name: 'Company F', employees: 950 }
-// ];
-
 // Set up dimensions and radius for the bubble chart
 async function createItBubbles(data) {
     // console.log(data)
@@ -141,10 +105,10 @@ async function fetchItData() {
 
         tempObj.name = data[i]["ИменаКомпанија"]
         let brEmpl = parseInt(data[i]["Брнавработени"]);
-        if (brEmpl > 1500) {
-            brEmpl /= 4
+        if (brEmpl > 1000) {
+            brEmpl = 1000
         }
-        tempObj.employees = brEmpl + 500
+        tempObj.employees = brEmpl + 350
 
         companies.push(tempObj)
     }

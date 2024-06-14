@@ -62,7 +62,7 @@ function changeSchool(company, marker, about) {
     <p><i class="fa-solid fa-chalkboard-user"></i> Програмски јазици: ${about[2].length}</p>
     <p><i class="fa-solid fa-book"></i> Работни позиции:</p>`
     for (let i = 0; i < about[3].length; i++) {
-        if (i > 3) break
+        if (i > 2) break
         abtSch.innerHTML += `<p>${about[3][i]}</p>`
     }
 }
