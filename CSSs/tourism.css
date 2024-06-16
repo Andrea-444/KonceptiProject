@@ -1,0 +1,70 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers items horizontally */
+    justify-content: center; /* Centers items vertically */
+    padding: 20px; /* Adds padding around the content */
+    margin: 0 auto; /* Centers the container horizontally */
+}
+
+#map {
+    width: 90%; /* Ensures the map takes full width */
+    height: 600px; /*Adjust height as needed */
+    margin-top: 20px; /* Adds some space above the map */
+    margin-bottom: 20px; /* Adds some space below the map */
+    position: relative; /* Enables z-index to work */
+    z-index: 1; 
+}
+
+@media (max-width: 768px) {
+    #map {
+        height: 400px; /* Adjust height for smaller screens */
+    }
+}
+.map-legend {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 5px;
+    padding-right: 30px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    font-family: Arial, sans-serif;
+    line-height: 2;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+
+.map-legend h4 {
+    margin-top: 0;
+    font-size: 16px;
+}
+
+.map-legend ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.map-legend li {
+    margin-bottom: 5px;
+    margin-top: 5%;
+    /* margin: 10px; */
+    display: flex; 
+    align-items: center; 
+}
+
+.map-legend .legend-marker {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    border-radius: 50%;
+    margin-top: 5%;
+}
+
+.map-legend .hotel { background-color: #9CFFAC; }
+.map-legend .theater { background-color: #D69CFF; } 
+.map-legend .cinema { background-color: #FF4B4B; } 
+.map-legend .museum { background-color: #F7FF6C; } 
