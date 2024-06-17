@@ -3,26 +3,6 @@ maptilersdk.config.apiKey = '28X7x2vtR4iZb6S98Fot';
 let selectedCompany = ''
 let isOn = false
 
-// const listaMarkers = {
-//     "Centar": [21.74, 41.60],
-//     "Prilep": [21.565, 41.37],
-//     "Bitola": [21.34, 41.05],
-//     "Skopje": [21.44, 42.02],
-// }
-// const listAboutSchool = {
-//     "Centar": ["Karpos 1, Skopje", 1000, 100, 11.5, [500, 550, 600, 850, 700, 750, 800, 740, 800, 600]],
-//     "Prilep": ["Centar, Prilep", 100, 10, 15, [100, 250, 300, 250, 200, 350, 500, 440, 400, 600]],
-//     "Bitola": ["Vlez, Bitola", 100, 1000, 12, [400, 550, 400, 850, 700, 750, 400, 540, 600, 500]],
-//     "Skopje": ["Centar, Skopje", 1000, 10, 10, [100, 200, 300, 400, 500, 600, 700, 800, 900, 800]],
-// }
-
-// START WHEN LOADING PAGE
-// START WHEN LOADING PAGE
-// spawnLocationMap()
-// makeGraph()
-// makeLineChart()
-// makePieChart()
-
 function spawnLocationMap(loc) {
     const schoolLocationMap = new maptilersdk.Map({
         container: 'schoolLocationMap', // container's id or the HTML element to render the map
@@ -49,11 +29,13 @@ function changeSchool(company, marker, about) {
 
     let newCompany = company
     selectedCompany = newCompany
+    // console.log(company, about)
     spawnLocationMap(marker)
-    makeGraph([about[2], generateRandomNumbers(about[2].length)])
+    // makeGraph([about[2], generateRandomNumbers(about[2].length)])
     // makeLineChart(["Karpos 1, Skopje", 1000, 100, 11.5, [500, 550, 600, 850, 700, 750, 800, 740, 800, 600]])
     makePieChartSlim(about[2])
-    makePieChart(about[3])
+    makePositions(about[3])
+    // makePieChart(about[3])
 
     const abtSch = document.getElementById('aboutSchool')
     abtSch.innerHTML = `<h3>About ${newCompany}</h3>
@@ -171,7 +153,7 @@ function makePieChartSlim(listLanguages) {
 // Set up color scale with shades of brown
     const color = d3.scaleOrdinal()
         .domain(data.map(d => d.label))
-        .range(["#e5e1d8", "#d8c9ba", "#ccb9ac", "#D2B48C"]);
+        .range(["#e1dccd", "#d8c9ba", "#ccb9ac", "#D2B48C"]);
 
 // Create the pie chart layout
     const pie = d3.pie()
@@ -222,6 +204,90 @@ function makePieChartSlim(listLanguages) {
         .attr("text-anchor", "middle")
         .text(d => d.data.label)
         .attr("class", "slice");
+}
+
+function makePositions(data) {
+    const listici = document.getElementsByClassName('tag-list');
+    let list0 = listici[0];
+    let list1 = listici[1];
+    for (let i = 0; i < listici.length; i++) {
+        listici[i].innerHTML = ""
+    }
+
+    if (data.length < 5) {
+        for (let i = 0; i < 5; i++) {
+            let tmp = []
+            for (let j = 0; j < data.length; j++) {
+                tmp.push(data[j])
+            }
+            for (let j = 0; j < tmp.length; j++) {
+                data.push(tmp[j])
+            }
+        }
+    }
+
+    for (let i = 0; i < data.length; i++) {
+        list0.innerHTML += `<li>${data[i]}</li>`
+    }
+
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mediaQuery && !mediaQuery.matches) {
+        const tagScroller = document.querySelector(".tag-scroller");
+        const allTags = tagScroller.querySelectorAll("li");
+
+        function createElement(tagName, className = "") {
+            const elem = document.createElement(tagName);
+            elem.className = className;
+            return elem;
+        }
+
+        function scrollersFrom(elements, numColumns = 2) {
+            const fragment = new DocumentFragment();
+            elements.forEach((element, i) => {
+                const column = i % numColumns;
+                const children = fragment.children;
+                if (!children[column]) fragment.appendChild(createElement("ul", "tag-list"));
+                children[column].appendChild(element);
+            });
+            return fragment;
+        }
+
+        /*	SPLIT THE LIST ELEMENT INTO TWO LISTS
+                AND CALL THE ANIMATION
+        */
+        const scrollers = scrollersFrom(allTags, 2);
+        tagScroller.innerHTML = "";
+        tagScroller.appendChild(scrollers);
+        addScrolling();
+
+        /*	ADD scrolling CLASS TO THE WRAPPER ELEMENT,
+                CLONE EACH LIST ITEM TO MAKE THE LIST LONG ENOUGH
+                FOR INFINITE SCROLL AND THEN CALCULATE THE DURATION
+                BASED ON WIDTH OF EACH SCROLLER TO MAKE THEM
+                MOVE AT THE SAME RATE OF SPEED
+
+                DEPENDING ON THE WIDTH OF .tag-scrollers, THE NUMBER OF
+                LIST ITEMS AND THEIR INDIVIDUAL WIDTH, YOU MIGHT NEED
+                TO CLONE THEM TWO TIMES EACH TO BE SURE EACH .tag-scroller
+                WILL BE WIDE ENOUGH TO SUPPORT INFINITE SCROLL
+
+                THIS COULD OF COURSE BE ADDED TO THE SCRIPT
+                BUT FOR OUR USE CASE, WE KNOW THE MINIMUM NUMBER OF
+                LIST ELEMENTS WILL BE ENOUGH FOR ONE CLONE EACH
+        */
+        function addScrolling() {
+            tagScroller.classList.add("scrolling");
+            document.querySelectorAll(".tag-list").forEach((tagList) => {
+                const scrollContent = Array.from(tagList.children);
+                scrollContent.forEach((listItem) => {
+                    const clonedItem = listItem.cloneNode(true);
+                    clonedItem.setAttribute("aria-hidden", true);
+                    tagList.appendChild(clonedItem);
+                });
+                tagList.style.setProperty("--duration", (tagList.clientWidth / 100) + "s");
+            });
+        }
+    }
 }
 
 function makePieChart(lista) {

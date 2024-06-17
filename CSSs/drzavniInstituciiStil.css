@@ -10,11 +10,11 @@
     /*stroke: red;*/
     /*stroke-width: 1.5px;*/
 }
-path:nth-of-type(-n+15) {
+#hierarhija path:nth-of-type(-n+15) {
     /*background: red; !important;*/
     display: none;
 }
-path {
+#hierarhija path {
     /*color: red;*/
     fill: none;
     stroke: black;
@@ -43,10 +43,6 @@ path {
 #topki svg {
     border-radius: 50%;
     /*position: ;*/
-}
-
-circle {
-    /*z-index: 100;*/
 }
 
 .node {
@@ -172,13 +168,55 @@ input:checked + .slider:before {
 
 
 
+#aboutMinisterstvo {
+    width: 30vw;
+    height: 17vh;
 
-.dropdown-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    background: var(--accent);
+    border-left: solid 0.4rem var(--secondary);
+    border-bottom: solid 0.4rem var(--secondary);
+    border-radius: 5%;
+
+    margin-bottom: 4vh;
+    margin-top: 3vh;
+    margin-left: 2vw;
+}
+#aboutMinisterstvoInfo {
+    width: 100%;
+    height: 90%;
+}
+
+#aboutMinisterstvoInfo h3 {
+    margin-top: 2%;
+    text-decoration: underline;
+    font-size: 1.2rem;
+}
+
+#aboutMinisterstvoInfo p {
+    margin: 0 5% 3% 5%;
+    text-align: left;
+    font-size: 1.3rem;
+}
+
+#aboutMinisterstvoInfo p i {
+    margin-right: 5%;
+    font-size: 1.1rem;
+}
+
+
+
+
+
+#pieChartsFilter .dropdown-container {
     width: 40vw;
     margin: auto;
 }
 
-.dropdown {
+#pieChartsFilter .dropdown {
     display: inline-block;
     margin: 2vw;
 
@@ -191,8 +229,11 @@ input:checked + .slider:before {
     outline: none;
 }
 
-.dropdown option {
+#pieChartsFilter .dropdown option {
     font-size: 16px;
+}
+#pieChartsFilter .dropdown-container h3 {
+    color: var(--header)
 }
 
 
@@ -205,9 +246,10 @@ input:checked + .slider:before {
 
 #pieChartsFilter {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 .arc text {
+    font-size: 1.5rem;
     /*display: none;*/
 }

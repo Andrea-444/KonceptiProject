@@ -203,6 +203,8 @@ function makePieChartOps(data, continer) {
     const color = d3.scaleOrdinal()
         .domain(data.map(d => d.name))
         .range(d3.schemeCategory10);
+        // .range(d3.interpolateBlues);
+    // const color = d3.scaleSequential(d3.interpolateOranges);
 
     const svg = d3.select(continer)
         .append("svg")

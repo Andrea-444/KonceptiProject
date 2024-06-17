@@ -251,6 +251,13 @@ async function makeDropdown(data) {
     makePieChartMin(tmp1, "#pieChartMin")
 }
 
+function updatePieTexBox(s) {
+    document.getElementById('aboutMinisterstvoInfo').innerHTML =
+        `<h3>${dropdown1Val}</h3>
+                    <h3>${dropdown2Val}</h3>
+                    <p><i class="fa-solid fa-person"></i> Број на вработени ${s}</p>`
+}
+
 async function makePieChartMin(data, continer) {
     if (data === null) {
         data = await fetchData("https://iammistake.github.io/KonceptiProject/podatoci/drzavniInstitucii.json")
@@ -269,13 +276,11 @@ async function makePieChartMin(data, continer) {
 
     document.getElementById('pieChartMin').innerHTML = ""
 
-    const width = outerWidth * 0.4;
-    const height = outerHeight * 0.8;
+    const width = outerWidth * 0.45;
+    const height = outerHeight * 0.5;
     const radius = Math.min(width, height) / 2;
     // console.log(data)/
-    const color = d3.scaleOrdinal()
-        .domain(data.map(d => d.name))
-        .range(["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"]);
+    const color = d3.scaleOrdinal(["#e1dccd", "#d8c9ba", "#ccb9ac", "#D2B48C"]);
 
     const svg = d3.select(continer)
         .append("svg")
@@ -298,14 +303,16 @@ async function makePieChartMin(data, continer) {
         .attr("class", "arc")
         .on("mouseover", function() {
             let data1 = d3.select(this)["_groups"][0][0]["__data__"].data;
-            // updatePieText(data1.name + " " + formatNumber(data1.value) + " денари")
+            updatePieTexBox(data1.name + ": " + data1.value)
             d3.select(this).select("text")
                 .style("display", "block")
-                .style("font-size", "2rem")
+                .style("font-size", "3rem")
                 .style("font-weight", "bold")
         })
         .on("mouseout", function() {
-            d3.select(this).select("text").style("display", "none");
+            d3.select(this).select("text")
+                .style("display", "block")
+                .style("font-size", "1.5rem")
         });
 
     arcs.append("path")
@@ -317,7 +324,6 @@ async function makePieChartMin(data, continer) {
         .attr("text-anchor", "middle")
         .text(d => d.data.name)
 }
-
 
 let dropdown1Val = "Министерство за животна средина и просторно планирање"
 let dropdown2Val = "Половна структура"
