@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="CSSs/forAll/newFooter.css">
 
     <link rel="stylesheet" href="CSSs/parlamentBgStil.css">
+    <link rel="stylesheet" href="CSSs/drzavniInstituciiStil.css">
 
     <script src="JAVASCRIPTs/sMyJS.js"></script>
     <link rel="stylesheet" href="CSSs/sStyle.css">
@@ -62,7 +63,51 @@
 </div>
 
 <main>
+    <div class="properHeader">
+        <h1>Приказ на државни институции</h1>
+        <label class="toggle">
+            <input type="checkbox">
+            <span class="slider"></span>
+        </label>
+    </div>
 
+    <div id="hierarhija"></div>
+
+    <hr>
+    <hr>
+
+    <div class="properHeader">
+        <h1>Буџет на Собранието на РСМ</h1>
+    </div>
+    <div id="sobranieTopkiCont">
+        <div id="aboutSobranie">
+            <div id="aboutSobranieInfo" class="middleText">
+                <h3>Собрание на Република Северна Македонија</h3>
+                <p><i class="fa-solid fa-person"></i> Број на вработени: 526 502</p>
+                <p><i class="fa-solid fa-money-bill"></i> Буџет: 343 600 000 000 денари </p>
+            </div>
+        </div>
+        <div id="topki"></div>
+    </div>
+
+    <hr>
+    <hr>
+
+    <div class="properHeader">
+        <h1>Приказ на структура на вработени во:</h1>
+    </div>
+    <div id="pieChartsFilter">
+        <div class="dropdown-container">
+            <select class="dropdown" id="dropdown">
+            </select>
+            <select class="dropdown" id="dropdown2">
+                <option value="Половна структура">Половна структура</option>
+                <option value="Образовна структура">Образовна структура</option>
+                <option value="Етничка структура">Етничка структура</option>
+            </select>
+        </div>
+        <div id="pieChartMin"></div>
+    </div>
 </main>
 
 <footer class="new_footer_area bg_color">
@@ -134,6 +179,7 @@
 </footer>
 
 <script src="JAVASCRIPTs/forAll/fetchFunc.js"></script>
+<script src="JAVASCRIPTs/drzavniInstituciiFunc.js"></script>
 
 </body>
 </html>

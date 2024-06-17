@@ -10,3 +10,7 @@ async function fetchData(pth)
         console.error("Error:", e);
     }
 }
+
+function formatNumber(num) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}

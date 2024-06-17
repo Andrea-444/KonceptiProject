@@ -1,0 +1,213 @@
+.node circle {
+    fill: #999; !important;
+}
+.node text {
+    font: 13px sans-serif;
+    color: var(--header); !important;
+}
+.link {
+    /*fill: red;*/
+    /*stroke: red;*/
+    /*stroke-width: 1.5px;*/
+}
+path:nth-of-type(-n+15) {
+    /*background: red; !important;*/
+    display: none;
+}
+path {
+    /*color: red;*/
+    fill: none;
+    stroke: black;
+    stroke-width: 1.5px;
+}
+
+#hierarhija {
+    background: var(--background);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#sobranieTopkiCont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#topki {
+    /*width: 80vw;*/
+    /*height: 100vh;*/
+    margin: auto;
+}
+#topki svg {
+    border-radius: 50%;
+    /*position: ;*/
+}
+
+circle {
+    /*z-index: 100;*/
+}
+
+.node {
+    cursor: pointer;
+}
+.node:hover {
+    stroke: #000;
+    stroke-width: 1.5px;
+}
+.label {
+    font-size: 12px;
+    text-anchor: middle;
+    pointer-events: none;
+}
+
+
+
+
+
+
+
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--header);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--primary);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+
+
+
+#aboutSobranie {
+    width: 30vw;
+    height: 25vh;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    background: var(--accent);
+    border-left: solid 0.4rem var(--secondary);
+    border-bottom: solid 0.4rem var(--secondary);
+    border-radius: 5%;
+
+    margin-bottom: 4vh;
+}
+#aboutSobranieInfo {
+    width: 100%;
+    height: 90%;
+}
+
+#aboutSobranieInfo h3 {
+    margin-top: 2%;
+    text-decoration: underline;
+    font-size: 1.2rem;
+}
+
+#aboutSobranieInfo p {
+    margin: 0 5% 3% 5%;
+    text-align: left;
+    font-size: 1rem;
+}
+
+#aboutSobranieInfo p i {
+    margin-right: 5%;
+    font-size: 1.1rem;
+}
+
+
+
+
+
+.dropdown-container {
+    width: 40vw;
+    margin: auto;
+}
+
+.dropdown {
+    display: inline-block;
+    margin: 2vw;
+
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 16px;
+    outline: none;
+}
+
+.dropdown option {
+    font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+#pieChartsFilter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.arc text {
+    /*display: none;*/
+}

@@ -1,0 +1,142 @@
+#map {
+    height: 80vh;
+    width: 85vw;
+
+    margin-left: 7.5vw;
+    margin-bottom: 10vh;
+    margin-top: 10vh;
+
+    border-radius: 2%;
+    box-shadow: 0 12px 18px rgba(0, 0, 0, 0.3); /* Adding a shadow */
+}
+
+#map b {
+    font-weight: bold;
+    color: var(--header);
+    font-size: 1rem;
+}
+
+
+#topki {
+    /*width: 80vw;*/
+    /*height: 100vh;*/
+    margin: auto;
+}
+#topki svg {
+    border-radius: 50%;
+    /*position: ;*/
+}
+
+circle {
+    /*z-index: 100;*/
+}
+
+.node {
+    cursor: pointer;
+}
+.node:hover {
+    stroke: #000;
+    stroke-width: 1.5px;
+}
+.label {
+    font-size: 12px;
+    text-anchor: middle;
+    pointer-events: none;
+}
+
+
+
+
+
+#filter {
+    /*margin-left: 10vw;*/
+    /*margin-top: 5vh;*/
+}
+
+.filter-option {
+    margin-bottom: 10px; /* Space between filter options */
+}
+
+.filter-option input[type="number"] {
+    margin-left: 10px;
+}
+
+
+
+
+#aboutOpstinaContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*align-content: center;*/
+    /*align-items: center;*/
+}
+#aboutOpstiniTop {
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+    display: flex;
+    justify-content: space-around;
+}
+#aboutOpstina {
+    width: 30vw;
+    height: 20vh;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    background: var(--accent);
+    border-left: solid 0.4rem var(--secondary);
+    border-bottom: solid 0.4rem var(--secondary);
+    border-radius: 5%;
+}
+#aboutOpstinaInfo {
+    width: 100%;
+    height: 60%;
+}
+
+#aboutOpstinaInfo h3 {
+    margin-top: 2%;
+    text-decoration: underline;
+    font-size: 1.8rem;
+}
+
+#aboutOpstinaInfo p {
+    margin: 0 5% 3% 5%;
+    text-align: left;
+    font-size: 1rem;
+}
+
+#aboutOpstinaInfo p i {
+    margin-right: 5%;
+    font-size: 1.1rem;
+}
+
+
+
+
+
+
+
+#pieOpstini {
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+}
+#pie2 {
+    /*margin-left: 5vw;*/
+}
+.arc text {
+    display: none;
+}
+#pieText {
+    width: 20vw;
+    margin: 0 2.5vw;
+
+    background: var(--secondary);
+
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+}

@@ -53,6 +53,35 @@ body {
     color: #101916;
 }
 
+.properHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 6vh 0;
+}
+.properHeader h1 {
+    font-family: 'Poppins', ui-sans-serif;
+    color: var(--header);
+    font-weight: bold;
+    font-size: 3.2rem;
+    align-items: center;
+
+    text-decoration: underline;
+    border-bottom: 3px solid var(--header);
+}
+.properHeader .innerHeaders {
+    display: flex;
+    justify-content: space-around;
+}
+.properHeader .innerHeaders h2 {
+    font-family: 'Poppins', ui-sans-serif;
+    color: var(--header);
+    /*font-weight: bold;*/
+    font-size: 1.8rem;
+}
+
 
 
 .flex {

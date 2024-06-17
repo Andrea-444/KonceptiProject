@@ -144,31 +144,51 @@ function addItClickEvent(data) {
                     let kade = data[i]["Локација"]
                     if (Array.isArray(kade)) {
                         if (kade.includes('Скопје')) {
-                            marker = [21.44, 42.02]
-                        } else if (kade.includes('Прилеп')) {
-                            marker = [21.565, 41.37]
-                        } else if (kade.includes('Охрид')) {
-                            marker = [20.44, 41.02]
-                        } else if (kade.includes('Битола')) {
-                            marker = [21.34, 41.05]
-                        } else if (kade.includes('Струмица')) {
-                            marker = [20.94, 41.52]
+                            marker = [
+                                21.4097395,
+                                41.9985988
+                            ]
                         } else {
                             marker = [22.44, 42.02]
                         }
                     } else {
                         if (kade === 'Скопје') {
-                            marker = [21.44, 42.02]
+                            marker = [
+                                21.4097395,
+                                41.9985988
+                            ]
                         } else if (kade === 'Прилеп') {
-                            marker = [21.565, 41.37]
+                            marker = [
+                                21.552832,
+                                41.346878
+                            ]
                         } else if (kade === 'Охрид') {
-                            marker = [20.44, 41.02]
+                            marker = [
+                                20.804352,
+                                41.113532
+                            ]
                         } else if (kade === 'Битола') {
-                            marker = [21.34, 41.05]
+                            marker = [
+                                21.33146280340948,
+                                41.03219121423016
+                            ]
                         } else if (kade === 'Струмица') {
-                            marker = [20.94, 41.52]
+                            marker = [
+                                22.63701587471554,
+                                41.43730797752894
+                            ]
+                        } else if (kade === 'Штип') {
+                            marker = [
+                                22.191319434098016,
+                                41.736028210137356
+                            ]
+                        } else if (kade === 'Велес') {
+                            marker = [
+                                21.771876,
+                                41.714939
+                            ]
                         } else {
-                            marker = [22.44, 42.02]
+                            marker = [21.44, 42.02]
                         }
                     }
 
