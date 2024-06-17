@@ -192,8 +192,8 @@ async function makeSobranie(data) {
 }
 
 async function fetchInstutuciiData() {
-    // let data = await fetchData("https://iammistake.github.io/KonceptiProject/podatoci/drzavniInstitucii.json")
-    let data = await fetchData("../podatoci/drzavniInstitucii.json")
+    let data = await fetchData("https://iammistake.github.io/KonceptiProject/podatoci/drzavniInstitucii.json")
+    // let data = await fetchData("../podatoci/drzavniInstitucii.json")
     // console.log(data)
     // console.log(data["Владини институции на РСМ"])
     let hierarchy = {}
@@ -253,8 +253,8 @@ async function makeDropdown(data) {
 
 async function makePieChartMin(data, continer) {
     if (data === null) {
-        // data = await fetchData("https://iammistake.github.io/KonceptiProject/podatoci/drzavniInstitucii.json")
-        data = await fetchData("../podatoci/drzavniInstitucii.json")
+        data = await fetchData("https://iammistake.github.io/KonceptiProject/podatoci/drzavniInstitucii.json")
+        // data = await fetchData("../podatoci/drzavniInstitucii.json")
         data = data["Министерства на РСМ"][dropdown1Val][dropdown2Val]
         let tmp1 = []
         for (const dataKey in data) {

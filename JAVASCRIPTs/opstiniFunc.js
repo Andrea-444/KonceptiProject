@@ -1,6 +1,7 @@
 
 async function makeMapOpstini(update) {
-    let data = await fetchData("../podatoci/opstini.json")
+    let data = await fetchData("https://iammistake.github.io/KonceptiProject/podatoci/opstini.json")
+    // let data = await fetchData("../podatoci/opstini.json")
     data = data["Општини"]
 
     if (update) {
