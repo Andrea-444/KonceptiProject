@@ -33,7 +33,7 @@
 }
 #obrzObj {
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh;  TEKSTO DA E ZAD SLIKATA*/
 
     content: '';
     position: absolute;

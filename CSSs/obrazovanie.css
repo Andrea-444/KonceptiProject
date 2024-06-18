@@ -1,0 +1,169 @@
+.selekcijaObrazovanie {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 255px;
+}
+
+main {
+    padding: 50px;
+    /*background-image: linear-gradient(to bottom, #707070, #ffffff);*/
+
+}
+
+.opciObrazovanie {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.povekje_info_za_ucilishta {
+    background: white;
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    border: 2px grey solid;
+    border-radius: 25px;
+    width: 400px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+#mapid{
+    border: 2px grey solid;
+    border-radius: 25px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+#informacizaucilishtata {
+
+    padding: 5%;
+    text-align: center;
+    width: 100%;
+    align-items: center;
+
+}
+
+
+.button-style {
+    background-color: #222;
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Farfetch Basis", "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+    max-width: none;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+}
+
+.button-style:hover{
+    opacity: .75;
+}
+
+
+
+
+
+
+.custom-select {
+    min-width: 350px;
+    position: relative;
+}
+
+select {
+    appearance: none;
+    /*  safari  */
+    -webkit-appearance: none;
+    /*  other styles for aesthetics */
+    width: 100%;
+    font-size: 1.15rem;
+    padding: 0.675em 6em 0.675em 1em;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    color: #000;
+    cursor: pointer;
+}
+
+.custom-select::before,
+.custom-select::after {
+    --size: 0.3rem;
+    content: "";
+    position: absolute;
+    right: 1rem;
+    pointer-events: none;
+}
+
+.custom-select::before {
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-bottom: var(--size) solid black;
+    top: 40%;
+}
+
+.custom-select::after {
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-top: var(--size) solid black;
+    top: 55%;
+}
+
+
+
+
+
+
+
+
+#input_opstina{
+color: rgba(0,0,0,.87);
+border-bottom-color: rgba(0,0,0,.42);
+font-size: 1rem;
+font-weight: 400;
+letter-spacing: .009375em;
+text-decoration: inherit;
+text-transform: inherit;
+align-self: flex-end;
+box-sizing: border-box;
+width: 100%;
+padding: 20px 16px 6px;
+transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+border: none;
+border-bottom: 1px solid;
+border-radius: 4px 4px 0 0;
+background: rgb(245, 245, 245);
+height: 56px;
+}
+#input_opstina:hover{
+    border-bottom-color: rgba(0,0,0,.87);
+    background: #ececec;
+}
+#input_opstina:focus{
+    border-color: #6200ee;
+}
+
+
+
+
+
+
+
+

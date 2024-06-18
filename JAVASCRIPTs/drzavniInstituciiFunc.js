@@ -338,14 +338,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     dropdown1.addEventListener('change', function () {
         dropdown1Val = dropdown1.options[dropdown1.selectedIndex].value;
-        console.log(dropdown1Val);
+        // console.log(dropdown1Val);
 
         makePieChartMin(null, "#pieChartMin")
     })
 
     dropdown2.addEventListener('change', function () {
         dropdown2Val = dropdown2.options[dropdown2.selectedIndex].value;
-        console.log(dropdown2Val);
+        // console.log(dropdown2Val);
 
         makePieChartMin(null, "#pieChartMin")
     })
