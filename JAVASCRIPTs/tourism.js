@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     for (let category in data) {
         if (data.hasOwnProperty(category)) {
             data[category].forEach(location => {
-                // Check if location has "Локација" array (latitude and longitude)
                 if (location.hasOwnProperty('Локација') && Array.isArray(location.Локација) && location.Локација.length === 2) {
                     const [latitude, longitude] = location.Локација;
 
@@ -67,15 +66,21 @@ document.addEventListener('DOMContentLoaded', async function () {
                             markerIcon = null;
                     }
 
-                    // Add marker to the map with the appropriate icon
+                    let popupContent = `<b>${location.Име}</b><br>Град: ${location.Град}<br>`;
+                    if (category === 'Хотели') {
+                        popupContent += `Број на соби: ${location['Бр.Соби']}<br>`;
+                        popupContent += `Број на легла: ${location['Бр.Легла']}<br>`;
+                    }
+
+                    // Add marker to the map with the appropriate icon and popup
                     if (markerIcon) {
                         L.marker([latitude, longitude], { icon: markerIcon })
                             .addTo(map)
-                            .bindPopup(`<b>${location.Име}</b><br>Град: ${location.Град}`);
+                            .bindPopup(popupContent);
                     } else {
                         L.marker([latitude, longitude])
                             .addTo(map)
-                            .bindPopup(`<b>${location.Име}</b><br>Град: ${location.Град}`);
+                            .bindPopup(popupContent);
                     }
                 }
             });
@@ -87,12 +92,12 @@ var legend = L.control({ position: 'bottomleft' });
 
 legend.onAdd = function (map) {
     var div = L.DomUtil.create('div', 'map-legend');
-    div.innerHTML += '<h4>Legend</h4>';
+    div.innerHTML += '<h4>Легенда</h4>';
     div.innerHTML += '<ul>';
-    div.innerHTML += '<li><span class="legend-marker hotel"></span> Hotels</li>';
-    div.innerHTML += '<li><span class="legend-marker theater"></span> Theaters</li>';
-    div.innerHTML += '<li><span class="legend-marker cinema"></span> Cinemas</li>';
-    div.innerHTML += '<li><span class="legend-marker museum"></span> Museums</li>';
+    div.innerHTML += '<li><span class="legend-marker hotel"></span> Хотел</li>';
+    div.innerHTML += '<li><span class="legend-marker theater"></span> Театар</li>';
+    div.innerHTML += '<li><span class="legend-marker cinema"></span> Кино</li>';
+    div.innerHTML += '<li><span class="legend-marker museum"></span> Музеј</li>';
     div.innerHTML += '</ul>';
     return div;
 };
@@ -108,6 +113,7 @@ for (let category in data) {
     if (data.hasOwnProperty(category) && category === 'Хотели') {
         data[category].forEach(hotel => {
             hotelNames.push(hotel['Име']);
+            // hotelNames.push(`${hotel['Име']} - ${hotel['Град']}`);
             roomCounts.push(hotel['Бр.Соби']);
             bedCounts.push(hotel['Бр.Легла']);
         });
@@ -154,6 +160,65 @@ var myChart = new Chart(ctx, {
 });
 
 
+
+// Extract theater data for D3.js circular bar chart
+let theaterNames = [];
+let actorCounts = [];
+let showCounts = [];
+let theaterLocations = [];
+
+for (let category in data) {
+    if (data.hasOwnProperty(category) && category === 'Театри') {
+        data[category].forEach(theater => {
+            theaterNames.push(`${theater['Име']} - ${theater['Град']}`);
+            actorCounts.push(parseInt(theater['бр.актери'], 10) || 0); // Default to 0 if parsing fails
+            showCounts.push(parseInt(theater['бр. претстави 2023'], 10) || 0); // Default to 0 if parsing fails
+            theaterLocations.push(theater['Локација']);
+        });
+    }
+}
+
+// Render circular bar chart using D3.js
+console.log('Theater Names:', theaterNames);
+    console.log('Actor Counts:', actorCounts);
+    console.log('Show Counts:', showCounts);
+
+    // Render circular bar chart using D3.js
+    var ctx = document.getElementById('circularBarChart').getContext('2d');
+    var cicrcularChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: theaterNames,
+            datasets: [{
+                label: 'Број на актери',
+                data: actorCounts,
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }, {
+                label: 'Број на претстави 2023',
+                data: showCounts,
+                backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Број на актери и претстави'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Театри'
+                    }
+                }
+            }
+        }
+    });
 });
-
-

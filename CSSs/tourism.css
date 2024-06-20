@@ -25,7 +25,7 @@ main {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 5px;
-    padding-right: 30px;
+    padding-right: 60px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
     font-family: Arial, sans-serif;
     line-height: 2;
@@ -37,7 +37,8 @@ main {
 
 
 .map-legend h4 {
-    margin-top: 0;
+    margin-top: 5px;
+    margin-bottom: 15px;
     font-size: 16px;
 }
 
@@ -48,7 +49,7 @@ main {
 }
 
 .map-legend li {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     margin-top: 5%;
     /* margin: 10px; */
     display: flex; 
@@ -68,3 +69,14 @@ main {
 .map-legend .theater { background-color: #D69CFF; } 
 .map-legend .cinema { background-color: #FF4B4B; } 
 .map-legend .museum { background-color: #F7FF6C; } 
+
+.naslov{
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+#circularBarChart {
+    width: 90%;
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+}
