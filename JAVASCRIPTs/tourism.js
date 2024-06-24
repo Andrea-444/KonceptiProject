@@ -71,6 +71,10 @@ document.addEventListener('DOMContentLoaded', async function () {
                         popupContent += `Број на соби: ${location['Бр.Соби']}<br>`;
                         popupContent += `Број на легла: ${location['Бр.Легла']}<br>`;
                     }
+                    if(category === 'Театри'){
+                        popupContent += `Број на прeтстави 2023: ${location['бр. претстави 2023']}<br>`;
+                        popupContent += `Број на актери: ${location['бр.актери']}<br>`;
+                    }
 
                     // Add marker to the map with the appropriate icon and popup
                     if (markerIcon) {
@@ -104,64 +108,228 @@ legend.onAdd = function (map) {
 
 legend.addTo(map); // Add legend to the map
 
-let hotelNames = [];
-let roomCounts = [];
-let bedCounts = [];
+//PRV NACIN SO BAR PLOT
+
+// let hotelNames = [];
+// let roomCounts = [];
+// let bedCounts = [];
+
 
 // Iterate through data categories
-for (let category in data) {
-    if (data.hasOwnProperty(category) && category === 'Хотели') {
-        data[category].forEach(hotel => {
-            hotelNames.push(hotel['Име']);
-            // hotelNames.push(`${hotel['Име']} - ${hotel['Град']}`);
-            roomCounts.push(hotel['Бр.Соби']);
-            bedCounts.push(hotel['Бр.Легла']);
-        });
-    }
-}
+// for (let category in data) {
+//     if (data.hasOwnProperty(category) && category === 'Хотели') {
+//         data[category].forEach(hotel => {
+//             hotelNames.push(hotel['Име']);
+//             // hotelNames.push(`${hotel['Име']} - ${hotel['Град']}`);
+//             roomCounts.push(hotel['Бр.Соби']);
+//             bedCounts.push(hotel['Бр.Легла']);
+//         });
+//     }
+// }
 
 // Display Chart using Chart.js
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: hotelNames,
-        datasets: [{
-            label: 'Број на соби',
-            data: roomCounts,
-            backgroundColor: 'rgba(54, 162, 235, 0.6)',
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1
-        }, {
-            label: 'Број на легла',
-            data: bedCounts,
-            backgroundColor: 'rgba(255, 99, 132, 0.6)',
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true,
-                title: {
-                    display: true,
-                    text: 'Број на соби и легла'
-                }
-            },
-            x: {
-                title: {
-                    display: true,
-                    text: 'Хотели'
+// var ctx = document.getElementById('myChart').getContext('2d');
+// var myChart = new Chart(ctx, {
+//     type: 'bar',
+//     data: {
+//         labels: hotelNames,
+//         datasets: [{
+//             label: 'Број на соби',
+//             data: roomCounts,
+//             backgroundColor: 'rgba(54, 162, 235, 0.6)',
+//             borderColor: 'rgba(54, 162, 235, 1)',
+//             borderWidth: 1
+//         }, {
+//             label: 'Број на легла',
+//             data: bedCounts,
+//             backgroundColor: 'rgba(255, 99, 132, 0.6)',
+//             borderColor: 'rgba(255, 99, 132, 1)',
+//             borderWidth: 1
+//         }]
+//     },
+//     options: {
+//         scales: {
+//             y: {
+//                 beginAtZero: true,
+//                 title: {
+//                     display: true,
+//                     text: 'Број на соби и легла'
+//                 }
+//             },
+//             x: {
+//                 title: {
+//                     display: true,
+//                     text: 'Хотели'
+//                 }
+//             }
+//         }
+//     }
+// });
+
+//KRAJ
+
+//VTOR NACIN SO SCATTER PLOT
+
+// let hotelData = [];
+
+// // Iterate through data categories
+// for (let category in data) {
+//     if (data.hasOwnProperty(category) && category === 'Хотели') {
+//         data[category].forEach(hotel => {
+//             hotelData.push({
+//                 name: hotel['Име'],
+//                 city: hotel['Град'],
+//                 rooms: hotel['Бр.Соби'],
+//                 beds: hotel['Бр.Легла'],
+//                 radius: 10
+//             });
+//         });
+//     }
+// }
+
+// var ctx = document.getElementById('myChart').getContext('2d');
+// var myChart = new Chart(ctx, {
+//     type: 'scatter',
+//     data: {
+//         datasets: [{
+//             label: 'Хотели',
+//             data: hotelData.map(hotel => ({x: hotel.rooms, y: hotel.beds, radius: hotel.radius})),
+//             backgroundColor: 'rgba(54, 162, 235, 0.6)',
+//             borderColor: 'rgba(54, 162, 235, 1)',
+//             borderWidth: 1,
+//             pointRadius: function(context) {
+//                 return context.raw.radius;
+//             },
+//             pointHoverRadius: function(context) {
+//                 return context.raw.radius * 1.5; // Increase hover radius for better visibility
+//             },
+//             pointBackgroundColor: 'rgba(54, 162, 235, 0.6)'
+//         }]
+//     },
+//     options: {
+//         plugins: {
+//             tooltip: {
+//                 callbacks: {
+//                     label: function(context) {
+//                         const index = context.dataIndex;
+//                         const hotel = hotelData[index];
+//                         return `${hotel.name} - ${hotel.city}: ${hotel.rooms} соби, ${hotel.beds} легла`;
+//                     }
+//                 }
+//             }
+//         },
+//         scales: {
+//             x: {
+//                 title: {
+//                     display: true,
+//                     text: 'Број на соби'
+//                 },
+//                 beginAtZero: true
+//             },
+//             y: {
+//                 title: {
+//                     display: true,
+//                     text: 'Број на легла'
+//                 },
+//                 beginAtZero: true
+//             }
+//         }
+//     }
+// });
+
+//KRAJ
+
+let setCities = new Set();
+
+function generateRandomColor() {
+    const alpha = 0.4; 
+    const randomColor = `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${alpha})`;
+    return randomColor;
+}
+
+let hotelData = [];
+
+            // Iterate through data categories
+            for (let category in data) {
+                if (data.hasOwnProperty(category) && category === 'Хотели') {
+                    data[category].forEach(hotel => {
+                        hotelData.push({
+                            name: hotel['Име'],
+                            city: hotel['Град'],
+                            rooms: hotel['Бр.Соби'],
+                            beds: hotel['Бр.Легла'],
+                            size: hotel['Бр.Легла']
+                        });
+                    
+                            setCities.add(hotel['Град']);
+                    });
                 }
             }
-        }
-    }
-});
+
+            console.log(setCities);
+
+            let cityColors = {};
+            setCities.forEach(city => {
+                cityColors[city] = generateRandomColor();
+            });
+        
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bubble',
+                data: {
+                    datasets: [{
+                        label: 'Хотели',
+                        data: hotelData.map(hotel => ({
+                            x: hotel.rooms,
+                            y: hotel.beds,
+                            r: hotel.size / 10, 
+                            city: hotel.city  
+                        })),
+                        backgroundColor: hotelData.map(hotel => cityColors[hotel.city]), 
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const hotel = hotelData[context.dataIndex];
+                                    return `${hotel.name} - ${hotel.city}: ${hotel.rooms} соби, ${hotel.beds} легла`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Број на соби'
+                            },
+                            beginAtZero: true
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Број на легла'
+                            },
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            
 
 
+// const legendContainer = document.getElementById('legend');
+// legendContainer.innerHTML = '<h4>Легенда</h4>';
+// setCities.forEach(city => {
+//         const color = cityColors[city];
+//         legendContainer.innerHTML += `<div><span class="legend-color" style="background-color: ${color};"></span> ${city}</div>`;
+// });
+        
 
-// Extract theater data for D3.js circular bar chart
 let theaterNames = [];
 let actorCounts = [];
 let showCounts = [];
@@ -178,12 +346,10 @@ for (let category in data) {
     }
 }
 
-// Render circular bar chart using D3.js
 console.log('Theater Names:', theaterNames);
     console.log('Actor Counts:', actorCounts);
     console.log('Show Counts:', showCounts);
 
-    // Render circular bar chart using D3.js
     var ctx = document.getElementById('circularBarChart').getContext('2d');
     var cicrcularChart = new Chart(ctx, {
         type: 'bar',

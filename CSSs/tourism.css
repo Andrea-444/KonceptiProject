@@ -3,22 +3,22 @@ main {
     flex-direction: column;
     align-items: center; /* Centers items horizontally */
     justify-content: center; /* Centers items vertically */
-    padding: 20px; /* Adds padding around the content */
+    padding: 20px; 
     margin: 0 auto; /* Centers the container horizontally */
 }
 
 #map {
-    width: 90%; /* Ensures the map takes full width */
-    height: 600px; /*Adjust height as needed */
-    margin-top: 20px; /* Adds some space above the map */
-    margin-bottom: 20px; /* Adds some space below the map */
+    width: 90%; 
+    height: 600px; 
+    margin-top: 20px; 
+    margin-bottom: 20px; 
     position: relative; /* Enables z-index to work */
     z-index: 1; 
 }
 
 @media (max-width: 768px) {
     #map {
-        height: 400px; /* Adjust height for smaller screens */
+        height: 400px; 
     }
 }
 .map-legend {
