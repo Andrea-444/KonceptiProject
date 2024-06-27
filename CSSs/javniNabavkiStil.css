@@ -1,0 +1,87 @@
+#pieChartsFilter .dropdown-container {
+    width: 40vw;
+    margin: auto;
+}
+
+#pieChartsFilter .dropdown {
+    display: inline-block;
+    margin: 2vw;
+
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 16px;
+    outline: none;
+}
+
+#pieChartsFilter .dropdown option {
+    font-size: 16px;
+}
+#pieChartsFilter .dropdown-container h3 {
+    color: var(--header)
+}
+
+
+
+
+
+#pieChartsFilter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+#javniCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+
+    width: 85vw;
+    /*background: aqua;*/
+
+    margin: auto;
+}
+
+.javnaCard {
+    margin: 1vh;
+    width: 32%;
+    background: var(--background);
+    border-radius: 10%;
+    border: 0.2rem solid black;
+    /*box-shadow: ;*/
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    padding: 2vh;
+
+    text-align: center;
+}
+.javnaCard p:first-of-type {
+    font-size: clamp(0.7rem, 1.2rem, 1.7rem);
+    color: var(--header);
+    font-weight: bold;
+}
+.javnaCard > p {
+    font-size: clamp(0.7rem, 1rem, 1.3rem);
+    color: var(--text);
+    /*font-weight: bold;*/
+}
+.javnaCard .cardDates {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.javnaCard .cardDates > p {
+    font-size: clamp(0.7rem, 1rem, 1.3rem);
+    color: var(--header);
+    font-weight: bold;
+}
