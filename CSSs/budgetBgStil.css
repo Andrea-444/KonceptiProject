@@ -1,8 +1,8 @@
-#javniBg {
+#budgetBg {
     width: 100vw;
     height: 100vh;
 
-    background-image: url("https://images.unsplash.com/photo-1579389083078-4e7018379f7e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-image: url("https://images.unsplash.com/photo-1561414927-6d86591d0c4f?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
     background-size: cover;
     background-position: center center;
 
@@ -11,7 +11,12 @@
     justify-content: center;
     align-items: center;
 }
-#javniBg h1{
+#budgetBg h1{
+    background: rgba(0, 0, 0, 0.35);
+    padding: 1vw;
+    border-radius: 5%;
+
+
     margin-top: 0;
     margin-left: 3vw;
 
