@@ -54,7 +54,7 @@ async function fetchBudgetData(selectedType, selectedValue) {
     try {
         console.log("The type of data selected is --> " + selectedType + " and the object i need to find is --> " + selectedValue)
         // Fetch JSON data
-        let response = await fetch("https://raw.githubusercontent.com/IamMistake/KonceptiProject/d57b2d87de44391974cb8592f647f441881feca0/podatoci/budget.json");
+        let response = await fetch("https://iammistake.github.io/KonceptiProject/podatoci/budget.json");
         let data = await response.json();
         console.log(data); // Check if data is fetched correctly
 
