@@ -107,3 +107,9 @@ main {
     /*height: 1000px;*/
     background: var(--background);
 }
+
+
+iframe {
+    width: 25vw;
+    height: 30vh;
+}

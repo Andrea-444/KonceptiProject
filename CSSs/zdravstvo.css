@@ -1,0 +1,272 @@
+main h1:first-of-type {
+    margin-top: 0;
+}
+
+.povekje_info_za_ustanova {
+    background: white;
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    border: 2px grey solid;
+    border-radius: 25px;
+    width: 400px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+#info_ustanovi {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+
+    width: 85vw;
+    /*background: aqua;*/
+
+    margin: auto;
+    margin-top: 7vh;
+
+    /*padding: 5%;*/
+    text-align: center;
+    /*width: 100%;*/
+    /*align-items: center;*/
+
+}
+#map-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 255px;
+}
+
+h1{
+    text-align: center;
+}
+#select_ustanovi {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4px;
+}
+#mapid{
+    border: 2px grey solid;
+    border-radius: 25px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+main {
+    padding: 50px;
+    /*background-image: linear-gradient(to bottom, #707070, #ffffff);*/
+
+}
+
+
+#bubble-div {
+    margin-bottom: 5vh;
+}
+
+.button-style {
+    background-color: #222;
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Farfetch Basis", "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+    max-width: none;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+}
+
+.button-style:hover{
+    opacity: .75;
+}
+
+
+
+
+
+
+.custom-select {
+    min-width: 350px;
+    position: relative;
+}
+
+select {
+    appearance: none;
+    /*  safari  */
+    -webkit-appearance: none;
+    /*  other styles for aesthetics */
+    width: 100%;
+    font-size: 1.15rem;
+    padding: 0.675em 6em 0.675em 1em;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    color: #000;
+    cursor: pointer;
+}
+
+.custom-select::before,
+.custom-select::after {
+    --size: 0.3rem;
+    content: "";
+    position: absolute;
+    right: 1rem;
+    pointer-events: none;
+}
+
+.custom-select::before {
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-bottom: var(--size) solid black;
+    top: 40%;
+}
+
+.custom-select::after {
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-top: var(--size) solid black;
+    top: 55%;
+}
+
+
+
+
+.javnaCard {
+    margin: 1vh;
+    width: 32%;
+    background: var(--background);
+    border-radius: 5%;
+    border: 0.2rem solid black;
+    /*box-shadow: ;*/
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    padding: 2vh;
+
+    text-align: center;
+}
+.javnaCard p:first-of-type {
+    font-size: clamp(0.7rem, 1.2rem, 1.7rem);
+    color: var(--header);
+    font-weight: bold;
+}
+.javnaCard > p {
+    font-size: clamp(0.7rem, 1rem, 1.3rem);
+    color: var(--text);
+    /*font-weight: bold;*/
+}
+.javnaCard .cardDates {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.javnaCard .cardDates > p {
+    font-size: clamp(0.7rem, 1rem, 1.3rem);
+    color: var(--header);
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--header);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--primary);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+
+
+#doctors {
+    width: 100%;
+    height: 100vh;
+
+    display: none;
+}
+.link {
+    fill: none;
+    stroke-width: 2px;
+}
+.node text {
+    font: 1rem sans-serif;
+}

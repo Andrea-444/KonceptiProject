@@ -23,6 +23,14 @@
     <link rel="stylesheet" href="CSSs/forAll/newFooter.css">
 
     <link rel="stylesheet" href="CSSs/zdravstvoStil.css">
+    <link rel="stylesheet" href="CSSs/zdravstvo.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin="">
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+            integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+            crossorigin=""></script>
 
     <script src="JAVASCRIPTs/sMyJS.js"></script>
     <link rel="stylesheet" href="CSSs/sStyle.css">
@@ -63,12 +71,65 @@
 <div id="zdrBg">
     <div id="zdrText">
         <h1>ЗДРАВСТВО</h1>
-        <h2><i class="fa-brands fa-instagram"></i><i class="fa-brands fa-discord"></i></h2>
+<!--        <h2><i class="fa-brands fa-instagram"></i><i class="fa-brands fa-discord"></i></h2>-->
         <div id="zdrObj"></div>
     </div>
 </div>
 
 <main>
+    <div class="properHeader">
+        <h1>Институции по нивоа</h1>
+    </div>
+
+    <div id="bubble-div">
+        <select name="odberi_nivo" id="odberi_nivo" class="custom-select">
+            <option value="Институции во примарно ниво">Институции во примарно ниво</option>
+            <option value="Институции во секундарно ниво">Институции во секундарно ниво</option>
+            <option value="Институции од терциерно ниво">Институции од терциерно ниво</option>
+            <option value="Специјалности">Специјалности</option>
+        </select>
+        <div  class="text flex">
+            <h1 id="heder-zdravstvo">Институции во примарно ниво</h1>
+        </div>
+        <div>
+            <svg width="1200" height="20" id="bubble-chart"></svg>
+        </div>
+    </div>
+
+    <hr>
+    <hr>
+
+    <div class="properHeader">
+        <h1>Приказ на државни институции</h1>
+        <label class="toggle">
+            <input type="checkbox">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div id="doctors"></div>
+
+    <hr>
+    <hr>
+
+    <div class="properHeader">
+        <h1>Здраствени установи</h1>
+    </div>
+
+    <div id="map-div">
+        <div id="select_ustanovi">
+
+            <!--  <select name="odberi_tip" id="odberi_tip" class="custom-select">
+              </select>
+             -->
+            <select name="odberi_opshtina" id="odberi_opshtina" class="custom-select">
+            </select>
+            <button class="button-style" onclick="setMarkers()">Пребарај</button>
+        </div>
+        <div id="mapid" style="width: 600px; height: 400px;"></div>
+    </div>
+    <div id="info_ustanovi"></div>
+
 
 </main>
 
@@ -76,18 +137,6 @@
     <div class="new_footer_top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;">
-                        <h3 class="f-title f_600 t_color f_size_18">Стапи во контакт</h3>
-                        <p>Не пропуштајте никакви ажурирања на нашите нови шаблони и екстензии.!</p>
-                        <form action="#" class="f_subscribe_two mailchimp" method="post" novalidate="true" _lpchecked="1">
-                            <input type="text" name="EMAIL" class="form-control memail" placeholder="Email">
-                            <button class="btn btn_get btn_get_two" type="submit">Претплати се</button>
-                            <p class="mchimp-errmessage" style="display: none;"></p>
-                            <p class="mchimp-sucmessage" style="display: none;"></p>
-                        </form>
-                    </div>
-                </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
                         <h3 class="f-title f_600 t_color f_size_18">Сектори</h3>
@@ -104,23 +153,26 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
-                        <h3 class="f-title f_600 t_color f_size_18">Помош</h3>
-                        <ul class="list-unstyled f_list">
-                            <li><a href="#">Најчесто поставувани прашања</a></li>
-                            <li><a href="#">Документација</a></li>
-                            <li><a href="#">Политика за поддршка</a></li>
-                            <li><a href="#">Приватност</a></li>
-                        </ul>
-                    </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11859.283773027852!2d21.4095479!3d42.0041182!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13541443605aa4ab%3A0x33d56647e5b87264!2sFaculty%20of%20Computer%20Science%20%26%20Engineering!5e0!3m2!1sen!2smk!4v1719604842854!5m2!1sen!2smk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <!--                        <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">-->
+                    <!--                            <h3 class="f-title f_600 t_color f_size_18">Помош</h3>-->
+                    <!--                            <ul class="list-unstyled f_list">-->
+                    <!--                                <li><a href="#">Најчесто поставувани прашања</a></li>-->
+                    <!--                                <li><a href="#">Документација</a></li>-->
+                    <!--                                <li><a href="#">Политика за поддршка</a></li>-->
+                    <!--                                <li><a href="#">Приватност</a></li>-->
+                    <!--                            </ul>-->
+                    <!--                        </div>-->
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
                         <div class="f_social_icon">
-                            <a href="#" class="fab fa-facebook"></a>
-                            <a href="#" class="fab fa-twitter"></a>
-                            <a href="#" class="fab fa-linkedin"></a>
-                            <a href="#" class="fab fa-pinterest"></a>
+                            <a href="https://www.facebook.com/FINKI.ukim.mk/" class="fab fa-facebook"></a>
+                            <a href="https://www.finki.ukim.mk/en"><i class="fa-solid fa-globe"></i></a>
+                            <!--                                <a href="#" class="fab fa-linkedin"></a>-->
+                            <!--                                <a href="#" class="fab fa-pinterest"></a>-->
                         </div>
                     </div>
                 </div>
@@ -143,6 +195,7 @@
 </footer>
 
 <script src="JAVASCRIPTs/forAll/fetchFunc.js"></script>
+<script src="JAVASCRIPTs/zdravstvoFunc.js"></script>
 
 </body>
 </html>

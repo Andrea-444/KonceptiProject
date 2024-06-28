@@ -130,7 +130,7 @@ input:checked + .slider:before {
 
 #aboutSobranie {
     width: 30vw;
-    height: 25vh;
+    /*height: 25vh;*/
 
     display: flex;
     justify-content: space-between;
