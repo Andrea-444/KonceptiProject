@@ -170,7 +170,7 @@ input:checked + .slider:before {
 
 #aboutMinisterstvo {
     width: 30vw;
-    height: 17vh;
+    /*height: 17vh;*/
 
     display: flex;
     justify-content: space-between;
