@@ -260,7 +260,7 @@ async function renderPieChart(data) {
                 .style("background-color", color(d.label));
             console.log(d)
             labelItem.append("div")
-                .html(d.label + " --> <b>" + d.value + "</b>"); // Make value bold
+                .html(d.label + " --> <b>" + d.value + "ден</b>"); // Make value bold
         });
 
         // Function to construct tooltip HTML
