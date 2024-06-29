@@ -85,8 +85,8 @@ async function processAndVisualizeData(data, selectedType, selectedValue) {
             selectedData = data[`${selectedValue} - Институции`];
         } else if (selectedType === "Плански региони") {
             selectedData = data[`${selectedValue} - Плански региони`];
-        } else if (selectedType === 'Мој-ДДВ ') {
-            selectedData = data['Мој-ДДВ']
+        } else if (selectedType === 'Мој ДДВ') {
+            selectedData = data['Мој ДДВ']
         } else if (selectedType === 'Фирми') {
             console.log("Enter firmi")
             console.log(`Фирми - ${selectedValue}`)
@@ -161,6 +161,11 @@ async function processAndVisualizeData(data, selectedType, selectedValue) {
                 var price = firstPart.replace(/,/g, '.');
                 console.log(price)
                 newData.value = price
+            } else if (selectedType === "Мој ДДВ"){
+                newData.label = Object.entries(d)[0][1]
+                let values = Object.entries(d).slice(1, 4).map(entry => parseInt(entry[1]))
+                console.log(values)
+                newData.value = values[0] + values[1] + values[2];
             }
             // var i = 0;
             // Include additional attributes from 'd' as needed
@@ -272,4 +277,9 @@ async function renderPieChart(data) {
     } catch (error) {
         console.error('Error rendering pie chart:', error);
     }
+}
+
+async function showDDV() {
+    let btn = document.getElementById('myDdvButton').innerText
+    await fetchBudgetData('Мој ДДВ', 'kiro')
 }
