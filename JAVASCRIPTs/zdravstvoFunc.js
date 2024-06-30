@@ -288,7 +288,7 @@ document.addEventListener("DOMContentLoaded", function () {
         prebaraj();
     });
 
-    opshtina.addEventListener('change', function () {
+    opshtina.addEventListener('onClick', function () {
         setMarkers();
     });
 });
