@@ -229,7 +229,7 @@ function makePieChartOps(data, continer) {
             let data1 = d3.select(this)["_groups"][0][0]["__data__"].data;
             updatePieText(data1.name + " " + formatNumber(data1.value) + " денари")
             d3.select(this).select("text")
-                .style("display", "block")
+                .style("display", "none")   // DISPLAY
                 .style("font-size", "2rem")
                 .style("font-weight", "bold")
         })
