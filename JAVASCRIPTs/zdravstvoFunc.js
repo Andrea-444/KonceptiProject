@@ -37,7 +37,7 @@ async function createItBubbles(data) {
 
     const color = d3.scaleOrdinal(d3.schemeCategory10);
 
-    let radiusce = 50;
+    let radiusce = 35;
     let forcce = 60;
 
     let strX = 0.005;
@@ -75,7 +75,13 @@ async function createItBubbles(data) {
         }
     }
     if (document.getElementById('heder-zdravstvo').innerText === 'Специјалности') {
-        radiusce = 30;
+        radiusce = 25;
+        strY = 0.075;
+        strX = 0.0045;
+        forcce = 35;
+    }
+    if (document.getElementById('heder-zdravstvo').innerText === 'Институции во секундарно ниво') {
+        radiusce = 25;
         strY = 0.075;
         strX = 0.005;
         forcce = 50;
@@ -124,16 +130,21 @@ async function createItBubbles(data) {
     simulation.alpha(1).restart();
 }
 
-async function getData() {
+async function getData(dali) {
     let data = await fetchData("https://iammistake.github.io/KonceptiProject/podatoci/zdravstvo.json");
     let jsongradovi = await fetchData("https://iammistake.github.io/KonceptiProject/podatoci/gradovi.json");
+
+    if (dali === "doctors") {
+        makeDoctors(data["Доктори"], currFrom, currTo);
+        return
+    }
 
     data["Здраствени установи"].forEach(d => {
         ustanovi.push(d);
     });
 
     makeDropdownOpshtina(data);
-    makeDoctors(data["Доктори"]);
+    makeDoctors(data["Доктори"], currFrom, currTo);
 
     jsongradovi.forEach(grad => {
         datagradovi.push(grad);
@@ -176,6 +187,14 @@ function setMarkers() {
         }
     });
 
+    // mymap.setView()
+
+    datagradovi.forEach(grad => {
+        if (grad["град"].toString().toLowerCase() === opshtina.toString().toLowerCase()) {
+            mymap.setView([grad["координати"]["latitude"], grad["координати"]["longitude"]], 11)
+        }
+    })
+
     creatingUstanovi();
 }
 
@@ -190,12 +209,117 @@ function creatingUstanovi() {
     });
 }
 
-async function makeDoctors(dataca) {
+function doctorObject(data) {
+    let tmp = {};
+
+    tmp.name = data["Доктор"]
+
+    return tmp
+}
+
+function splitDoctorsData(data) {
+    let pol = {}
+    pol["Машки"] = []
+    pol["Женски"] = []
+
+    let specijalnost = {}
+    let rabMesto = {}
+
+    let privDrzavno = {}
+    privDrzavno["Приватно"] = []
+    privDrzavno["Државно"] = []
+
+    let nivo = {}
+    nivo["Примарно"] = []
+    nivo["Секундарно"] = []
+    nivo["Терциерно"] = []
+
+    let opstini = {}
+
+    for (let i = 0; i < data.length; i++) {
+        if (data[i]["Доктор"] === "/") {
+            continue;
+        }
+        if (data[i]["Специјалност"] === "/") {
+            continue;
+        }
+
+        // POL-at kalendar
+        if (data[i]["Пол"] === "Женски") {
+            let tmp = doctorObject(data[i])
+            pol["Женски"].push(tmp)
+        }
+        if (data[i]["Пол"] === "Машки") {
+            let tmp = doctorObject(data[i])
+            pol["Машки"].push(tmp)
+        }
+
+        // Specijalnost
+        let specTmp = data[i]["Специјалност"]
+        if (specijalnost.hasOwnProperty(specTmp)) {
+            specijalnost[specTmp].push(doctorObject(data[i]))
+        } else {
+            specijalnost[specTmp] = []
+            specijalnost[specTmp].push(doctorObject(data[i]))
+        }
+
+        // rabMesto
+        let rabMestoTmp = data[i]["Работно место"]
+        if (rabMesto.hasOwnProperty(rabMestoTmp)) {
+            rabMesto[rabMestoTmp].push(doctorObject(data[i]))
+        } else {
+            rabMesto[rabMestoTmp] = []
+            rabMesto[rabMestoTmp].push(doctorObject(data[i]))
+        }
+
+        // privatno / drzavno
+        if (data[i]["Приватно\/Државно"] === "Државно") {
+            let tmp = doctorObject(data[i])
+            privDrzavno["Државно"].push(tmp)
+        }
+        if (data[i]["Приватно\/Државно"] === "Приватно") {
+            let tmp = doctorObject(data[i])
+            privDrzavno["Приватно"].push(tmp)
+        }
+
+        // Nivo
+        if (data[i]["Примарно\/Секундарно\/Терциерно"] === "Примарно ниво") {
+            let tmp = doctorObject(data[i])
+            nivo["Примарно"].push(tmp)
+        }
+        if (data[i]["Примарно\/Секундарно\/Терциерно"] === "Секундарно ниво") {
+            let tmp = doctorObject(data[i])
+            nivo["Секундарно"].push(tmp)
+        }
+        if (data[i]["Примарно\/Секундарно\/Терциерно"] === "Терциерно ниво") {
+            let tmp = doctorObject(data[i])
+            nivo["Терциерно"].push(tmp)
+        }
+
+        // opstini
+        let opstiniTmp = data[i]["Општина"]
+        if (opstini.hasOwnProperty(opstiniTmp)) {
+            opstini[opstiniTmp].push(doctorObject(data[i]))
+        } else {
+            opstini[opstiniTmp] = []
+            opstini[opstiniTmp].push(doctorObject(data[i]))
+        }
+    }
+
+    console.log("POL", pol)
+    console.log("specijalnost", specijalnost)
+    console.log("rabMesto", rabMesto)
+    console.log("privDrzavno", privDrzavno)
+    console.log("nivo", nivo)
+    console.log("opstini", opstini)
+}
+
+async function makeDoctors(dataca, from, to) {
     let newData = {};
     newData.name = "Доктори";
     newData.children = [];
 
-    for (let i = 0; i < 200; i++) {
+    for (let i = from; i < to; i++) {
         let tmp = {};
         tmp.name = dataca[i]["Доктор"];
         tmp["Пол"] = dataca[i]["Пол"];
@@ -221,11 +345,21 @@ async function makeDoctors(dataca) {
     const root = tree(d3.hierarchy(data)
         .sort((a, b) => d3.ascending(a.data.name, b.data.name)));
 
-    const svg = d3.select("#doctors").append("svg")
-        .attr("width", width)
-        .attr("height", height)
-        .attr("viewBox", [-cx, -cy, width, height])
-        .attr("style", "width: 100%; height: 100%; font: 1rem sans-serif;");
+    let svg
+    if (isFirst) {
+        svg = d3.select("#doctors").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .attr("viewBox", [-cx, -cy, width, height])
+            .attr("style", "width: 100%; height: 100%; font: 0.85rem sans-serif;");
+    } else {
+        document.getElementById('doctors').innerHTML = ""
+        svg = d3.select("#doctors").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .attr("viewBox", [-cx, -cy, width, height])
+            .attr("style", "width: 100%; height: 100%; font: 0.85rem sans-serif;");
+    }
 
     svg.append("g")
         .attr("fill", "none")
@@ -261,19 +395,48 @@ async function makeDoctors(dataca) {
         .attr("stroke", "white")
         .attr("fill", "currentColor")
         .text(d => d.data.name);
+
+    if (isFirst) {
+        splitDoctorsData(dataca)
+
+        isFirst = false
+    }
 }
+
+function changeDoctorsTree(broj) {
+    if (broj === 100 && doctorsLength <= currTo + 100) {
+        currFrom = 0
+        currTo = 100
+        return
+    }
+    if (broj === -100 && 0 >= currFrom) {
+        currFrom = 6300
+        currTo = 6400
+        return
+    }
+
+    currFrom += broj
+    currTo += broj
+    getData("doctors")
+}
+
+let currFrom = 0
+let currTo = 100
+let doctorsLength = 6400
+
+let isFirst = true
 
 let ustanovi = [];
 let datagradovi = [];
 let datazdravstvo = [];
 
 fetchItData();
-getData();
+getData("se");
 
 document.addEventListener("DOMContentLoaded", function () {
     const opshtina = document.getElementById('odberi_opshtina');
     const checkbox = document.querySelector('.toggle input');
-    const doctors = document.getElementById('doctors');
+    const doctors = document.getElementById('doktorContainer');
     const nivo = document.getElementById("odberi_nivo");
 
     checkbox.addEventListener('change', function() {
