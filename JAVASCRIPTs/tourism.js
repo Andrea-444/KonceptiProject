@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async function () {
-    // Fetch the data
+
     const data = await fetchData('podatoci\\turizam.json');
 
     if (!data) {
@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         return;
     }
 
-    var map = L.map('map').setView([41.9981, 21.4254], 8); // Adjust zoom level according to your preference
+    var map = L.map('map').setView([41.9981, 21.4254], 8); 
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     const hotelIcon = L.icon({
         iconUrl: './images/hotel.png',
-        iconSize: [32, 32], 
-        iconAnchor: [16, 32], 
-        popupAnchor: [0, -32] 
+        iconSize: [32, 32],
+        iconAnchor: [16, 32],
+        popupAnchor: [0, -32]
     });
 
     const theaterIcon = L.icon({
@@ -41,13 +41,19 @@ document.addEventListener('DOMContentLoaded', async function () {
         popupAnchor: [0, -32]
     });
 
+    const markers = {
+        'Хотели': [],
+        'Театри': [],
+        'Кина': [],
+        'Музеи': []
+    };
+
     for (let category in data) {
         if (data.hasOwnProperty(category)) {
             data[category].forEach(location => {
                 if (location.hasOwnProperty('Локација') && Array.isArray(location.Локација) && location.Локација.length === 2) {
                     const [latitude, longitude] = location.Локација;
 
-                    // Determine which icon to use based on the category
                     let markerIcon;
                     switch (category) {
                         case 'Хотели':
@@ -71,43 +77,60 @@ document.addEventListener('DOMContentLoaded', async function () {
                         popupContent += `Број на соби: ${location['Бр.Соби']}<br>`;
                         popupContent += `Број на легла: ${location['Бр.Легла']}<br>`;
                     }
-                    if(category === 'Театри'){
+                    if (category === 'Театри') {
                         popupContent += `Број на прeтстави 2023: ${location['бр. претстави 2023']}<br>`;
                         popupContent += `Број на актери: ${location['бр.актери']}<br>`;
                     }
 
-                    // Add marker to the map with the appropriate icon and popup
-                    if (markerIcon) {
-                        L.marker([latitude, longitude], { icon: markerIcon })
-                            .addTo(map)
-                            .bindPopup(popupContent);
-                    } else {
-                        L.marker([latitude, longitude])
-                            .addTo(map)
-                            .bindPopup(popupContent);
-                    }
+                    const marker = L.marker([latitude, longitude], { icon: markerIcon })
+                        .bindPopup(popupContent);
+
+                    markers[category].push(marker);
+                    marker.addTo(map);
                 }
             });
         }
     }
 
-  // Create a custom legend control
-var legend = L.control({ position: 'bottomleft' });
+    var legend = L.control({ position: 'bottomleft' });
 
-legend.onAdd = function (map) {
-    var div = L.DomUtil.create('div', 'map-legend');
-    div.innerHTML += '<h4>Легенда</h4>';
-    div.innerHTML += '<ul>';
-    div.innerHTML += '<li><span class="legend-marker hotel"></span> Хотел</li>';
-    div.innerHTML += '<li><span class="legend-marker theater"></span> Театар</li>';
-    div.innerHTML += '<li><span class="legend-marker cinema"></span> Кино</li>';
-    div.innerHTML += '<li><span class="legend-marker museum"></span> Музеј</li>';
-    div.innerHTML += '</ul>';
-    return div;
-};
+    legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'map-legend');
+        div.innerHTML += '<h4>Легенда</h4>';
+        div.innerHTML += '<ul>';
+        div.innerHTML += '<li class="legend-item" data-category="Хотели"><span class="legend-marker hotel"></span> Хотел</li>';
+        div.innerHTML += '<li class="legend-item" data-category="Театри"><span class="legend-marker theater"></span> Театар</li>';
+        div.innerHTML += '<li class="legend-item" data-category="Кина"><span class="legend-marker cinema"></span> Кино</li>';
+        div.innerHTML += '<li class="legend-item" data-category="Музеи"><span class="legend-marker museum"></span> Музеј</li>';
+        div.innerHTML += '</ul>';
+        return div;
+    };
 
-legend.addTo(map); // Add legend to the map
+    legend.addTo(map); 
 
+    const style = document.createElement('style');
+    style.innerHTML = `
+        .legend-item {
+            cursor: pointer;
+        }
+    `;
+    document.head.appendChild(style);
+
+    document.querySelectorAll('.legend-item').forEach(item => {
+        item.addEventListener('click', function () {
+            const category = this.getAttribute('data-category');
+            filterMarkers(category);
+        });
+    });
+
+    function filterMarkers(category) {
+        for (let key in markers) {
+            markers[key].forEach(marker => map.removeLayer(marker));
+        }
+        if (markers.hasOwnProperty(category)) {
+            markers[category].forEach(marker => map.addLayer(marker));
+        }
+    }
 //PRV NACIN SO BAR PLOT
 
 // let hotelNames = [];
@@ -249,7 +272,7 @@ function generateRandomColor() {
 
 let hotelData = [];
 
-            // Iterate through data categories
+        
             for (let category in data) {
                 if (data.hasOwnProperty(category) && category === 'Хотели') {
                     data[category].forEach(hotel => {
@@ -339,8 +362,8 @@ for (let category in data) {
     if (data.hasOwnProperty(category) && category === 'Театри') {
         data[category].forEach(theater => {
             theaterNames.push(`${theater['Име']} - ${theater['Град']}`);
-            actorCounts.push(parseInt(theater['бр.актери'], 10) || 0); // Default to 0 if parsing fails
-            showCounts.push(parseInt(theater['бр. претстави 2023'], 10) || 0); // Default to 0 if parsing fails
+            actorCounts.push(parseInt(theater['бр.актери'], 10) || 0);
+            showCounts.push(parseInt(theater['бр. претстави 2023'], 10) || 0); 
             theaterLocations.push(theater['Локација']);
         });
     }
