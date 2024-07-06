@@ -98,24 +98,26 @@ async function createItBubbles(data) {
 }
 
 async function fetchItData() {
-    let data = await fetchData("https://iammistake.github.io/KonceptiProject/podatoci/itIndustrija.json")
-    let companies = []
+    let data = await fetchData("https://iammistake.github.io/KonceptiProject/podatoci/itIndustrija.json");
+    let companies = [];
     for (let i = 0; i < data.length; i++) {
-        let tempObj = {}
+        let tempObj = {};
 
-        tempObj.name = data[i]["ИменаКомпанија"]
+        tempObj.name = data[i]["ИменаКомпанија"];
         let brEmpl = parseInt(data[i]["Брнавработени"]);
         if (brEmpl > 1000) {
-            brEmpl = 1000
+            brEmpl = 1000;
         }
-        tempObj.employees = brEmpl + 350
+        tempObj.employees = brEmpl + 350;
 
-        companies.push(tempObj)
+        companies.push(tempObj);
     }
-    // console.log(companies)
-    await createItBubbles(companies)
-    addItClickEvent(data)
+
+    await createItBubbles(companies);
+    await createPieChart(data);
+    addItClickEvent(data);
 }
+
 
 function addItClickEvent(data) {
     let circles = document.getElementsByTagName('circle')
@@ -205,7 +207,66 @@ function addItClickEvent(data) {
                 behavior: 'smooth' // Smooth scrolling
             });
         })
+
+        
     }
 }
-
 fetchItData()
+
+function countLanguages(data) {
+    let languageCount = {};
+    data.forEach(company => {
+        if (company["Програмскијазици"]) {
+            company["Програмскијазици"].forEach(language => {
+                if (languageCount[language]) {
+                    languageCount[language]++;
+                } else {
+                    languageCount[language] = 1;
+                }
+            });
+        }
+    });
+    return languageCount;
+}
+
+async function createPieChart(data) {
+    let languageCount = countLanguages(data);
+
+    const ctx = document.getElementById('languagesPieChart').getContext('2d');
+    const languagesPieChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: Object.keys(languageCount),
+            datasets: [{
+                label: 'Programming Languages Distribution',
+                data: Object.values(languageCount),
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(153, 102, 255, 0.6)',
+                    'rgba(255, 159, 64, 0.6)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'right'
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return 'Број на компании кои го користат: ' + tooltipItem.raw.toLocaleString();
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+
