@@ -3,29 +3,30 @@ main {
     flex-direction: column;
     align-items: center; /* Centers items horizontally */
     justify-content: center; /* Centers items vertically */
-    padding: 20px; 
+    padding: 20px;
     margin: 0 auto; /* Centers the container horizontally */
 }
 
 #map {
     width: 90%;      
     height: 600px; 
-    margin-top: 20px; 
-    margin-bottom: 20px; 
+    margin-top: 20px;
+    margin-bottom: 20px;
     position: relative; /* Enables z-index to work */
-    z-index: 1; 
+    z-index: 1;
 }
 
 @media (max-width: 768px) {
     #map {
-        height: 400px; 
+        height: 400px;
     }
 }
+
 .map-legend {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 5px;
-    padding-right: 60px;
+    padding-right: 60px; /* Combined padding properties */
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
     font-family: Arial, sans-serif;
     line-height: 2;
@@ -34,7 +35,6 @@ main {
     left: 20px;
     z-index: 1000;
 }
-
 
 .map-legend h4 {
     margin-top: 5px;
@@ -47,13 +47,15 @@ main {
     padding: 0;
     margin: 0;
 }
+/* 
+.legend-item {
+    cursor: pointer; 
+} */
 
 .map-legend li {
     margin-bottom: 10px;
-    margin-top: 5%;
-    /* margin: 10px; */
-    display: flex; 
-    align-items: center; 
+    display: flex;
+    align-items: center;
 }
 
 .map-legend .legend-marker {
@@ -62,21 +64,31 @@ main {
     height: 20px;
     margin-right: 5px;
     border-radius: 50%;
-    margin-top: 5%;
 }
 
-.map-legend .hotel { background-color: #9CFFAC; }
-.map-legend .theater { background-color: #D69CFF; } 
-.map-legend .cinema { background-color: #FF4B4B; } 
-.map-legend .museum { background-color: #F7FF6C; } 
+.map-legend .hotel {
+    background-color: #9CFFAC;
+}
 
-.naslov{
+.map-legend .theater {
+    background-color: #D69CFF;
+}
+
+.map-legend .cinema {
+    background-color: #FF4B4B;
+}
+
+.map-legend .museum {
+    background-color: #F7FF6C;
+}
+
+.naslov {
     margin-top: 40px;
     margin-bottom: 50px;
 }
 
 #circularBarChart {
     width: 90%;
-    margin-top: 20px; 
-    margin-bottom: 20px; 
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
