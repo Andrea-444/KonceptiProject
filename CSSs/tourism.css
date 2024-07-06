@@ -1,10 +1,10 @@
 main {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers items horizontally */
-    justify-content: center; /* Centers items vertically */
+    align-items: center; 
+    justify-content: center;
     padding: 20px;
-    margin: 0 auto; /* Centers the container horizontally */
+    margin: 0 auto; 
 }
 
 #map {
@@ -12,7 +12,7 @@ main {
     height: 600px; 
     margin-top: 20px;
     margin-bottom: 20px;
-    position: relative; /* Enables z-index to work */
+    position: relative; 
     z-index: 1;
 }
 
@@ -26,7 +26,7 @@ main {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 5px;
-    padding-right: 60px; /* Combined padding properties */
+    padding-right: 60px; 
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
     font-family: Arial, sans-serif;
     line-height: 2;
