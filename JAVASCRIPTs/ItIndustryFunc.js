@@ -218,6 +218,7 @@ function countLanguages(data) {
     data.forEach(company => {
         if (company["Програмскијазици"]) {
             company["Програмскијазици"].forEach(language => {
+                // language = language.toLowerCase();
                 if (languageCount[language]) {
                     languageCount[language]++;
                 } else {

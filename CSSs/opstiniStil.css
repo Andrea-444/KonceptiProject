@@ -112,21 +112,6 @@ circle {
     font-size: 1.1rem;
 }
 
-
-
-
-
-
-
-#pieOpstini {
-    width: 100vw;
-    display: flex;
-    justify-content: space-evenly;
-    margin: auto;
-}
-#pie2 {
-    /*margin-left: 5vw;*/
-}
 .arc text {
     display: none;
 }
@@ -134,9 +119,27 @@ circle {
     width: 20vw;
     margin: 0 2.5vw;
 
-    background: var(--secondary);
+    /* background: var(--secondary); */
 
     font-size: 1rem;
     font-weight: bold;
     text-align: center;
+}
+
+
+#pieOpstini {
+    width: 100vw;
+    height: 40vw;
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+    margin-bottom: 5%;
+}
+
+.pies {
+    max-width: 40%;
+}
+
+.innerHeaders h2 {
+    margin-top: 30px;
 }
