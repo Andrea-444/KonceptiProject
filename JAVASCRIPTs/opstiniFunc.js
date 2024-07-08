@@ -168,84 +168,71 @@ async function makeBallsOpstini(data) {
 }
 
 async function makePieOpstini(data) {
-    let osnovni = []
-    let sredni = []
-    let opsVoSk = ["Центар", "Гази Баба", "Аеродром", "Чаир", "Кисела Вода", "Бутел", "Шуто Оризари", "Карпош", "Ѓорче Петров", "Сарај"]
+    let osnovni = [];
+    let sredni = [];
+    let opsVoSk = ["Центар", "Гази Баба", "Аеродром", "Чаир", "Кисела Вода", "Бутел", "Шуто Оризари", "Карпош", "Ѓорче Петров", "Сарај"];
 
-    osnovni.push({name: "Скопје", value: 0})
-    sredni.push({name: "Скопје", value: 1778000000})
+    osnovni.push({name: "Скопје", value: 0});
+    sredni.push({name: "Скопје", value: 1778000000});
+    
     data.forEach(d => {
         if (opsVoSk.includes(d["Општини"])) {
-            osnovni[0].value += d["Пари овозможени за образование"]
+            osnovni[0].value += d["Пари овозможени за образование"];
         } else if (d["Општини"] === "Град Скопје") {
-
+            // Handle if necessary
         } else {
             if (d["Пари овозможени за образование"] > 10000) {
-                osnovni.push({name: d["Општини"], value: d["Пари овозможени за образование"]})
-                sredni.push({name: d["Општини"], value: d["Column8"]})
+                osnovni.push({name: d["Општини"], value: d["Пари овозможени за образование"]});
+                sredni.push({name: d["Општини"], value: d["Column8"]});
             }
         }
-    })
-    // console.log(osnovni)
-    // console.log(sredni)
-    // data = opstini
+    });
 
-    makePieChartOps(osnovni, "#pie1")
-    makePieChartOps(sredni, "#pie2")
+    // console.log("Osnovni array:", osnovni); // Log osnovni array
+    // console.log("Sredni array:", sredni);   // Log sredni array
+
+    makePieChartOps(osnovni, "pie1");
+    makePieChartOps(sredni, "pie2");
 }
 
-function makePieChartOps(data, continer) {
-    // console.log(data)
-    const width = outerWidth * 0.4;
-    const height = outerHeight * 0.8;
-    const radius = Math.min(width, height) / 2;
 
-    const color = d3.scaleOrdinal()
-        .domain(data.map(d => d.name))
-        .range(d3.schemeCategory10);
-        // .range(d3.interpolateBlues);
-    // const color = d3.scaleSequential(d3.interpolateOranges);
 
-    const svg = d3.select(continer)
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height)
-        .append("g")
-        .attr("transform", `translate(${width / 2}, ${height / 2})`);
+async function makePieChartOps(data, containerId) {
+    const ctx = document.getElementById(containerId).getContext('2d');
+    
+    console.log("Data for", containerId, ":", data); // Log data being passed to the chart
 
-    const pie = d3.pie()
-        .value(d => d.value);
-
-    const arc = d3.arc()
-        .innerRadius(0)
-        .outerRadius(radius);
-
-    const arcs = svg.selectAll("arc")
-        .data(pie(data))
-        .enter()
-        .append("g")
-        .attr("class", "arc")
-        .on("mouseover", function() {
-            let data1 = d3.select(this)["_groups"][0][0]["__data__"].data;
-            updatePieText(data1.name + " " + formatNumber(data1.value) + " денари")
-            d3.select(this).select("text")
-                .style("display", "none")   // DISPLAY
-                .style("font-size", "2rem")
-                .style("font-weight", "bold")
-        })
-        .on("mouseout", function() {
-            d3.select(this).select("text").style("display", "none");
-        });
-
-    arcs.append("path")
-        .attr("d", arc)
-        .attr("fill", d => color(d.data.name));
-
-    arcs.append("text")
-        .attr("transform", d => `translate(${arc.centroid(d)})`)
-        .attr("text-anchor", "middle")
-        .text(d => d.data.name)
+    const chart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: data.map(d => d.name),
+            datasets: [{
+                label: 'Budget Distribution',
+                data: data.map(d => d.value),
+                backgroundColor: d3.schemeCategory10,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    // position: 'top'
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return `${tooltipItem.label}: ${tooltipItem.raw.toLocaleString()} денари`;
+                        }
+                    }
+                }
+            }
+        }
+    });
 }
+
+
 
 function updatePieText(text) {
     let ova = document.getElementById('pieText')

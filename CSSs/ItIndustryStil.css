@@ -26,12 +26,7 @@
     pointer-events: none;
 }
 
-
-
-
-#itKompanii {
-}
-#itKompanii h1 {
+#itKompanii h1{
     text-align: center;
     font-size: 5rem;
     color: var(--header);
@@ -39,3 +34,21 @@
 
     border-bottom: 4px solid var(--header);
 }
+
+#languagesDistribution h1{
+    padding-top: 5%;
+} 
+
+#languagesDistribution {
+    text-align: center;
+    width: 100vw;
+    margin-left: 50px;
+    margin-top: 10%; 
+}
+#languagesPieChart {
+    width: 80vw !important;
+    height: 80vw !important;
+    margin: 50px auto;
+}
+
+
