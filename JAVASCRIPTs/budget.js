@@ -111,31 +111,6 @@ async function processAndVisualizeData(data, selectedType, selectedValue) {
             // Construct a new object with all attributes
             let newData = {}
 
-            // if (selectedType === "Буџет") {
-            //     let newData = {label: d[`БУЏЕТ ${selectedValue}`], value: d['РАСХОДИ НА ОСНОВЕН БУЏЕТ']};
-            //     attributes.forEach(attr => {
-            //         newData[attr] = d[attr];
-            //     });
-            // } else if (selectedType === "Јавни проекти") {
-            //     let newData = {label: d[`Јавни проекти`], value: d['Одвоен буџет(денари)']};
-            //     attributes.forEach(attr => {
-            //         newData[attr] = d[attr];
-            //     });
-            // } else if (selectedType === "Институции") {
-            //     let newData = {label: d[`Институции`], value: d['Одвоен буџет(денари)']};
-            //     attributes.forEach(attr => {
-            //         newData[attr] = d[attr];
-            //     });
-            // } else if (selectedType === "Планински регион") {
-            //     let newData = {label: d[`${selectedValue} - Планински регион`], value: d['Одвоен буџет(денари)']};
-            //     attributes.forEach(attr => {
-            //         newData[attr] = d[attr];
-            //     });
-            // } else {
-            //     console.error('Unknown selectedType:', selectedType);
-            //     return;
-            // }
-
             // Depending on selectedType, populate newData accordingly
             if (selectedType === "Буџет") {
                 newData.label = d[`БУЏЕТ ${selectedValue}`];
@@ -152,16 +127,22 @@ async function processAndVisualizeData(data, selectedType, selectedValue) {
                 newData.label = Object.entries(d)[0][1];
                 newData.value = d['Алоциран износ по проекти'];
             } else if (selectedType == "Фирми") {
-                newData.label = Object.entries(d)[0][1]
+                let firstPart=''
 
-                var indexBlank = d["Износ"].indexOf(' ');
-
-                var firstPart = d["Износ"].substring(0, indexBlank);
+                if (selectedValue === 'Биро за јавни набавки') {
+                    newData.label = Object.entries(d)[1][1]
+                    firstPart = d['Вредност на договорот'].substring(0, d['Вредност на договорот'].toString().length - 4);
+                } else {
+                    newData.label = Object.entries(d)[0][1]
+                    var indexBlank = d["Износ"].indexOf(' ');
+                    firstPart = d["Износ"].substring(0, indexBlank);
+                }
 
                 var price = firstPart.replace(/,/g, '.');
                 console.log(price)
                 newData.value = price
-            } else if (selectedType === "Мој ДДВ"){
+
+            } else if (selectedType === "Мој ДДВ") {
                 newData.label = Object.entries(d)[0][1]
                 let values = Object.entries(d).slice(1, 4).map(entry => parseInt(entry[1]))
                 console.log(values)
@@ -183,6 +164,8 @@ async function processAndVisualizeData(data, selectedType, selectedValue) {
 
         // Render pie chart with the prepared data
         await renderPieChart(pieData);
+        await renderBarChart(pieData);
+        await renderCircleGrid(pieData);
     } catch (error) {
         console.error('Error processing or visualizing data:', error);
     }
@@ -199,6 +182,9 @@ async function renderPieChart(data) {
         let width = 540;
         let height = 340;
         let radius = Math.min(width, height) / 2;
+        data.forEach(d => {
+            d.value = parseFloat(d.value);
+        });
 
         // Set SVG attributes
         svg.attr("width", width)
@@ -278,6 +264,197 @@ async function renderPieChart(data) {
         console.error('Error rendering pie chart:', error);
     }
 }
+
+// Function to render bar chart
+async function renderBarChart(data) {
+    try {
+        // Clear previous SVG contents
+        let svg = d3.select("#bar-chart");
+        svg.selectAll("*").remove();
+
+        // Define dimensions for the chart
+        let margin = {top: 20, right: 30, bottom: 60, left: 60}; // Adjusted for better spacing
+        let width = svg.node().getBoundingClientRect().width - margin.left - margin.right;
+        let height = svg.node().getBoundingClientRect().height - margin.top - margin.bottom;
+
+        data.forEach(d => {
+            d.value = parseFloat(d.value);
+        });
+
+        // Set SVG attributes
+        svg.attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom);
+
+        // Create a color scale
+        let color = d3.scaleOrdinal(d3.schemeCategory10);
+
+        // Append 'g' element for bars
+        let g = svg.append("g")
+            .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+        // Define x and y scales
+        let x = d3.scaleBand()
+            .rangeRound([0, width])
+            .padding(0.1)
+            .domain(data.map(d => d.label));
+
+        let y = d3.scaleLinear()
+            .rangeRound([height, 0])
+            .domain([0, d3.max(data, d => d.value)]);
+
+        // Add x-axis
+        g.append("g")
+            .attr("transform", `translate(0, ${height})`)
+            .call(d3.axisBottom(x))
+            .selectAll("text")
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-65)")
+            .attr("font-size", "12px"); // Adjust font size for better fit
+
+        // Add y-axis
+        g.append("g")
+            .call(d3.axisLeft(y).ticks(10));
+
+        // Add bars
+        g.selectAll(".bar")
+            .data(data)
+            .enter().append("rect")
+            .attr("class", "bar")
+            .attr("x", d => x(d.label))
+            .attr("y", d => y(d.value))
+            .attr("width", x.bandwidth())
+            .attr("height", d => height - y(d.value))
+            .style("fill", (d, i) => color(i));
+
+        // Add labels outside bars
+        g.selectAll(".label")
+            .data(data)
+            .enter().append("text")
+            .attr("class", "label")
+            .attr("x", d => x(d.label) + x.bandwidth() / 2)
+            .attr("y", d => y(d.value) - 10) // Adjust vertical position
+            .attr("text-anchor", "middle")
+            .attr("font-size", "12px") // Adjust font size for better fit
+            .text(d => d.value);
+
+    } catch (error) {
+        console.error('Error rendering bar chart:', error);
+    }
+}
+
+// Function to render circle grid chart with tooltips
+async function renderCircleGrid(data) {
+    try {
+        // Clear previous SVG contents
+        let svg = d3.select("#graph-chart");
+        svg.selectAll("*").remove();
+
+        // Define dimensions for the chart
+        let margin = {top: 20, right: 20, bottom: 20, left: 20}; // Adjust margins as needed
+        let width = svg.node().getBoundingClientRect().width - margin.left - margin.right;
+        let height = svg.node().getBoundingClientRect().height - margin.top - margin.bottom;
+
+        data.forEach(d => {
+            d.value = parseFloat(d.value);
+        });
+
+        // Set SVG attributes
+        svg.attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom);
+
+        // Compute the number of circles per row and column based on data length
+        let numCols = data.length; // All circles in a single row
+        let numRows = 1; // Single row
+
+        // Scale for circle sizes based on data values
+        let radiusScale = d3.scaleLinear()
+            .domain([0, d3.max(data, d => d.value)])
+            .range([5, Math.min(width / numCols, height / numRows) / 2]); // Adjust range for circle sizes
+
+        // Group for circles
+        let g = svg.append("g")
+            .attr("transform", `translate(${margin.left}, ${margin.top})`); // Apply margins
+
+        // Append circles
+        let circles = g.selectAll(".circle")
+            .data(data)
+            .enter().append("circle")
+            .attr("class", "circle")
+            .attr("cx", (d, i) => (i * (width / numCols)) + (width / numCols / 2))
+            .attr("cy", height / 2)
+            .attr("r", d => radiusScale(d.value))
+            .style("fill", () => getRandomColor()) // Random circle color
+            .style("opacity", 0.7) // Circle opacity
+            .on("mouseover", handleMouseOver)
+            .on("mouseout", handleMouseOut);
+
+        // Function to handle mouseover event
+        function handleMouseOver(event, d) {
+            d3.select(this)
+                .style("stroke", "black") // Add stroke for better visibility
+                .style("stroke-width", 2);
+
+            // Show tooltip
+            tooltip.transition()
+                .duration(200)
+                .style("opacity", 0.9);
+            tooltip.html(getTooltipHtml(d))
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY - 10) + "px");
+        }
+
+        // Function to handle mouseout event
+        function handleMouseOut(event, d) {
+            d3.select(this)
+                .style("stroke", "none"); // Remove stroke
+
+            // Hide tooltip
+            tooltip.transition()
+                .duration(500)
+                .style("opacity", 0);
+        }
+
+        // Add labels inside circles
+        circles.append("text")
+            .attr("class", "circle-label")
+            .attr("text-anchor", "middle")
+            .attr("alignment-baseline", "middle")
+            .text(d => d.value);
+
+        // Append tooltip div to body
+        let tooltip = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
+        // Function to generate random color
+        function getRandomColor() {
+            let letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Function to construct tooltip HTML
+        function getTooltipHtml(data) {
+            let html = `<div><b>Value:</b> ${data.value}</div>`;
+            // Add additional information from data
+            Object.keys(data).forEach(key => {
+                if (key !== "value") {
+                    html += `<div><b>${key}:</b> ${data[key]}</div>`;
+                }
+            });
+            return html;
+        }
+
+    } catch (error) {
+        console.error('Error rendering circle grid chart:', error);
+    }
+}
+
 
 async function showDDV() {
     let btn = document.getElementById('myDdvButton').innerText
