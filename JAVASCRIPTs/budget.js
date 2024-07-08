@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-    let dropdownButtons = document.querySelectorAll('.dropdown-toggle');
+    const main = document.getElementsByTagName('main')[0]
+    let dropdownButtons = main.querySelectorAll('.dropdown-toggle');
+    // console.log(dropdownButtons)
     let maxWidth = 0;
     // Find the maximum width among all dropdown buttons
     dropdownButtons.forEach(function (button) {
@@ -18,7 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
 // Wait for DOM content to load
 document.addEventListener('DOMContentLoaded', function () {
     // Fetch all dropdown items
-    let dropdownItems = document.querySelectorAll('.dropdown-item');
+    const main = document.getElementsByTagName('main')[0]
+    let dropdownItems = main.querySelectorAll('.dropdown-item');
     let selectedValue = null;
 
 
@@ -52,19 +55,19 @@ document.addEventListener('DOMContentLoaded', function () {
 // Function to fetch budget data
 async function fetchBudgetData(selectedType, selectedValue) {
     try {
-        console.log("The type of data selected is --> " + selectedType + " and the object i need to find is --> " + selectedValue)
+        // console.log("The type of data selected is --> " + selectedType + " and the object i need to find is --> " + selectedValue)
         // Fetch JSON data
         let response = await fetch("https://iammistake.github.io/KonceptiProject/podatoci/budget.json");
         let data = await response.json();
-        console.log(data); // Check if data is fetched correctly
-
-        console.log("Type: " + selectedType + " Value: " + selectedValue)
+        // console.log(data); // Check if data is fetched correctly
+        //
+        // console.log("Type: " + selectedType + " Value: " + selectedValue)
 
         // Process and visualize data
         await processAndVisualizeData(data, selectedType, selectedValue);
 
         // Log selected value for confirmation
-        console.log('Selected Value:', selectedValue);
+        // console.log('Selected Value:', selectedValue);
     } catch (error) {
         console.error('Error fetching or processing budget data:', error);
     }
@@ -74,7 +77,7 @@ async function fetchBudgetData(selectedType, selectedValue) {
 async function processAndVisualizeData(data, selectedType, selectedValue) {
     try {
         // Extract selected data based on selectedValue
-        let selectedData = {};
+        // let selectedData = {};
 
 
         if (selectedType === "Буџет") {
@@ -88,20 +91,20 @@ async function processAndVisualizeData(data, selectedType, selectedValue) {
         } else if (selectedType === 'Мој ДДВ') {
             selectedData = data['Мој ДДВ']
         } else if (selectedType === 'Фирми') {
-            console.log("Enter firmi")
-            console.log(`Фирми - ${selectedValue}`)
+            // console.log("Enter firmi")
+            // console.log(`Фирми - ${selectedValue}`)
             selectedData = data[`Фирми - ${selectedValue}`]
         } else {
             console.error('Unknown selectedType:', selectedType);
             return;
         }
-        console.log(selectedData)
+        // console.log(selectedData)
         if (!selectedData) {
             console.error('No data found for selected value: ' + selectedValue + " and type " + selectedType);
             return;
         }
 
-        console.log(selectedData)
+        // console.log(selectedData)
 
         // Prepare pie chart data
         let pieData = selectedData.map(d => {
@@ -116,7 +119,7 @@ async function processAndVisualizeData(data, selectedType, selectedValue) {
                 newData.label = d[`БУЏЕТ ${selectedValue}`];
                 newData.value = d['РАСХОДИ НА ОСНОВЕН БУЏЕТ'];
             } else if (selectedType === "Јавни проекти") {
-                console.log(d[0])
+                // console.log(d[0])
                 // Object.entries(obj)[0]
                 newData.label = Object.entries(d)[0][1];
                 newData.value = d['Одвоен буџет(денари)'];
@@ -139,13 +142,13 @@ async function processAndVisualizeData(data, selectedType, selectedValue) {
                 }
 
                 var price = firstPart.replace(/,/g, '.');
-                console.log(price)
+                // console.log(price)
                 newData.value = price
 
             } else if (selectedType === "Мој ДДВ") {
                 newData.label = Object.entries(d)[0][1]
                 let values = Object.entries(d).slice(1, 4).map(entry => parseInt(entry[1]))
-                console.log(values)
+                // console.log(values)
                 newData.value = values[0] + values[1] + values[2];
             }
             // var i = 0;
@@ -244,7 +247,7 @@ async function renderPieChart(data) {
             labelItem.append("div")
                 .attr("class", "label-color")
                 .style("background-color", color(d.label));
-            console.log(d)
+            // console.log(d)
             labelItem.append("div")
                 .html(d.label + " --> <b>" + d.value + "ден</b>"); // Make value bold
         });

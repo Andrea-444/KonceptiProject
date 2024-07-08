@@ -100,14 +100,24 @@
     <hr>
 
     <div class="properHeader">
-        <h1>Приказ на државни институции</h1>
+        <h1>Приказ на доктори</h1>
         <label class="toggle">
             <input type="checkbox">
             <span class="slider"></span>
         </label>
     </div>
 
-    <div id="doctors"></div>
+    <div id="doktorContainer">
+        <button class="beautiful-button" onclick="changeDoctorsTree(-100)">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <div id="doctors">
+            <!--        <button onclick="changeDoctorsTree(-100)"><i class="fa-solid fa-arrow-left"></i></button>-->
+        </div>
+        <button class="beautiful-button" onclick="changeDoctorsTree(100)">
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </div>
 
     <hr>
     <hr>

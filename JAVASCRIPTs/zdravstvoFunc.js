@@ -3,87 +3,88 @@ var mymap = L.map('mapid').setView([41.5501684, 21.5836714], 8);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
 }).addTo(mymap);
-var marker = []
+
+var markers = [];
 
 async function makeDropdownOpshtina(datas) {
-    let data = []
+    let data = [];
     datas["Здраствени установи"].forEach(d => {
-        data.push(d)
-    })
-    let dropdown = document.getElementById('odberi_opshtina')
+        data.push(d);
+    });
+    let dropdown = document.getElementById('odberi_opshtina');
     for (let i = 0; i < data.length; i++) {
         let option = document.createElement('option');
-        let key = data[i]["Општина"]
+        let key = data[i]["Општина"];
         option.value = key;
         option.textContent = key;
         dropdown.appendChild(option);
     }
-    const options = []
+    const options = [];
     document.querySelectorAll('#odberi_opshtina > option').forEach((option) => {
-        if (options.includes(option.value)) option.remove()
-        else options.push(option.value)
-    })
+        if (options.includes(option.value)) option.remove();
+        else options.push(option.value);
+    });
 }
 
 async function createItBubbles(data) {
-    // console.log(data)
     let innerWidth1 = window.innerWidth;
     const width = innerWidth1;
     const height = window.innerHeight * 0.6;
 
-// Create SVG element
     const svg = d3.select("#bubble-chart")
         .attr("width", width)
         .attr("height", height);
 
-// Define color scale
     const color = d3.scaleOrdinal(d3.schemeCategory10);
 
-    let radiusce = 50;
+    let radiusce = 35;
     let forcce = 60;
 
-// Define bubble simulation
-    let strX = 0.005
-    let strY = 0.2
+    let strX = 0.005;
+    let strY = 0.2;
     let strCollide = 12;
     let heightDevisitor = 2.1;
     if (innerWidth <= 1650) {
         if (innerWidth1 <= 1500) {
-            // heightDevisitor = 1.8
-            strY = 0.05
-            strCollide = 10
+            strY = 0.05;
+            strCollide = 10;
         }
         if (innerWidth1 <= 1400) {
-            // heightDevisitor = 1.8
-            strY = 0.03
-            strCollide = 9
+            strY = 0.03;
+            strCollide = 9;
         }
         if (innerWidth1 <= 1200) {
-            heightDevisitor = 1.8
-            strY = 0.02
-            strCollide = 6
+            heightDevisitor = 1.8;
+            strY = 0.02;
+            strCollide = 6;
         }
         if (innerWidth1 <= 1000) {
-            heightDevisitor = 1.8
-            strY = 0.02
-            strCollide = 5
+            heightDevisitor = 1.8;
+            strY = 0.02;
+            strCollide = 5;
         }
         if (innerWidth1 <= window.innerHeight) {
-            strY = 0.00615
-            strCollide = 8
-            heightDevisitor = 1.1
+            strY = 0.00615;
+            strCollide = 8;
+            heightDevisitor = 1.1;
         }
         if (innerWidth1 <= window.innerHeight - 300) {
-            heightDevisitor = 1
-            strY = 0.005
-            strCollide = 9
+            heightDevisitor = 1;
+            strY = 0.005;
+            strCollide = 9;
         }
     }
     if (document.getElementById('heder-zdravstvo').innerText === 'Специјалности') {
-        radiusce = 30
-        strY = 0.075
-        strX = 0.005
-        forcce = 50
+        radiusce = 25;
+        strY = 0.075;
+        strX = 0.0045;
+        forcce = 35;
+    }
+    if (document.getElementById('heder-zdravstvo').innerText === 'Институции во секундарно ниво') {
+        radiusce = 25;
+        strY = 0.075;
+        strX = 0.005;
+        forcce = 50;
     }
 
     const simulation = d3.forceSimulation(data)
@@ -94,7 +95,6 @@ async function createItBubbles(data) {
 
     for (let i = 0; i < 120; ++i) simulation.tick();
 
-// Draw bubbles
     const bubbles = svg.selectAll(".bubble")
         .data(data)
         .enter().append("circle")
@@ -104,7 +104,6 @@ async function createItBubbles(data) {
         .attr("cy", d => d.y)
         .attr("fill", (d, i) => color(i));
 
-// Add labels to bubbles
     const labels = svg.selectAll(".label")
         .data(data)
         .enter().append("text")
@@ -116,11 +115,9 @@ async function createItBubbles(data) {
         .style("font-weight", "bold")
         .text(d => `${d["Опис"]}`);
 
-// Adjust label positions
     labels.attr("x", d => d.x)
         .attr("y", d => d.y);
 
-// Restart the simulation to ensure proper positioning
     simulation.nodes(data)
         .on("tick", () => {
             bubbles.attr("cx", d => d.x)
@@ -133,125 +130,237 @@ async function createItBubbles(data) {
     simulation.alpha(1).restart();
 }
 
-async function getData() {
-    let data = await fetchData("https://iammistake.github.io/KonceptiProject/podatoci/zdravstvo.json")
-    let jsongradovi = await fetchData("https://iammistake.github.io/KonceptiProject/podatoci/gradovi.json")
+async function getData(dali) {
+    let data = await fetchData("https://iammistake.github.io/KonceptiProject/podatoci/zdravstvo.json");
+    let jsongradovi = await fetchData("https://iammistake.github.io/KonceptiProject/podatoci/gradovi.json");
+
+    if (dali === "doctors") {
+        makeDoctors(data["Доктори"], currFrom, currTo);
+        return
+    }
 
     data["Здраствени установи"].forEach(d => {
-        ustanovi.push(d)
-    })
+        ustanovi.push(d);
+    });
 
-
-    //   makeDropdownTip(data)
-    makeDropdownOpshtina(data)
-    makeDoctors(data["Доктори"])
+    makeDropdownOpshtina(data);
+    makeDoctors(data["Доктори"], currFrom, currTo);
 
     jsongradovi.forEach(grad => {
-        datagradovi.push(grad)
-    })
+        datagradovi.push(grad);
+    });
 }
 
 async function fetchItData() {
-    let dropdown = document.getElementById('odberi_nivo')
+    let dropdown = document.getElementById('odberi_nivo');
     let nivo = dropdown.options[dropdown.selectedIndex].value;
-    let heder = document.getElementById('heder-zdravstvo').innerHTML = nivo
-    let data = await fetchData("https://iammistake.github.io/KonceptiProject/podatoci/zdravstvo.json")
+    let heder = document.getElementById('heder-zdravstvo').innerHTML = nivo;
+    let data = await fetchData("https://iammistake.github.io/KonceptiProject/podatoci/zdravstvo.json");
 
-    let instituci = []
+    let instituci = [];
 
     data[nivo].forEach(inst => {
-        instituci.push(inst)
-    })
+        instituci.push(inst);
+    });
 
-
-    // console.log(companies)
-    await createItBubbles(instituci)
+    await createItBubbles(instituci);
 }
 
 function prebaraj() {
-    let bubble = document.getElementById('bubble-chart').innerHTML = ""
-    fetchItData()
+    let bubble = document.getElementById('bubble-chart').innerHTML = "";
+    fetchItData();
 }
 
 function setMarkers() {
-
     let opshtina = document.getElementById('odberi_opshtina').value;
-    //   let tip = document.getElementById("odberi_tip");
-    mymap.removeLayer(marker)
-    datagradovi.forEach(grad => {
 
-            if (grad["град"].toString().toLowerCase() === opshtina.toString().toLowerCase()) {
-                marker = L.marker([grad["координати"]["latitude"], grad["координати"]["longitude"]]).addTo(mymap);
+    // Remove previous markers
+    markers.forEach(marker => mymap.removeLayer(marker));
+    markers = [];
 
-            }
+    ustanovi.forEach(ustanova => {
+        if (ustanova["Општина"].toString().toLowerCase() === opshtina.toString().toLowerCase()) {
+            let coords = ustanova["Геолокација"].split(", ");
+            let newMarker = L.marker([parseFloat(coords[0]), parseFloat(coords[1])]).addTo(mymap)
+                .bindPopup(`<b>${ustanova["Установи"]}</b><br>Тип: ${ustanova["Тип"]}<br>Вид: ${ustanova["Приватно\/Државно"]}<br>Ниво: ${ustanova["Примарно\/секундарно\/терциерно"]}`);
+            markers.push(newMarker);
         }
-    )
-    creatingUstanovi()
+    });
 
+    // mymap.setView()
+
+    datagradovi.forEach(grad => {
+        if (grad["град"].toString().toLowerCase() === opshtina.toString().toLowerCase()) {
+            mymap.setView([grad["координати"]["latitude"], grad["координати"]["longitude"]], 11)
+        }
+    })
+
+    creatingUstanovi();
 }
 
 function creatingUstanovi() {
-    let div = document.getElementById('info_ustanovi')
+    let div = document.getElementById('info_ustanovi');
     let opshtina = document.getElementById('odberi_opshtina').value;
-    div.innerHTML = ""
-    ustanovi.forEach(ustanva => {
-
-        if (ustanva["Општина"].toString().toLowerCase() === opshtina.toString().toLowerCase()) {
-            div.innerHTML += "<div class='povekje_info_za_ustanova javnaCard'><p>" + ustanva['Установи'] + "</p>Тип: " + ustanva['Тип'] + "</p><p>Вид: " + ustanva['Приватно\/Државно'] + "</p><p>Ниво: " + ustanva['Примарно\/секундарно\/терциерно'] + "</p> </div>"
-
-
+    div.innerHTML = "";
+    ustanovi.forEach(ustanova => {
+        if (ustanova["Општина"].toString().toLowerCase() === opshtina.toString().toLowerCase()) {
+            div.innerHTML += "<div class='povekje_info_za_ustanova javnaCard'><p>" + ustanova['Установи'] + "</p>Тип: " + ustanova['Тип'] + "</p><p>Вид: " + ustanova['Приватно\/Државно'] + "</p><p>Ниво: " + ustanova['Примарно\/секундарно\/терциерно'] + "</p> </div>";
         }
-
-
-    })
-
-
+    });
 }
 
-async function makeDoctors(dataca) {
-    // console.log(dataca)
-    let newData = {}
-    newData.name = "Доктори"
-    newData.children = []
+function doctorObject(data) {
+    let tmp = {};
 
-    for (let i = 0; i < 200; i++) {
-        let tmp = {}
-        tmp.name = dataca[i]["Доктор"]
-        tmp["Пол"] = dataca[i]["Пол"]
-        if (tmp.name === "/") {
-            i++
-            continue
+    tmp.name = data["Доктор"]
+
+    return tmp
+}
+
+function splitDoctorsData(data) {
+    let pol = {}
+    pol["Машки"] = []
+    pol["Женски"] = []
+
+    let specijalnost = {}
+    let rabMesto = {}
+
+    let privDrzavno = {}
+    privDrzavno["Приватно"] = []
+    privDrzavno["Државно"] = []
+
+    let nivo = {}
+    nivo["Примарно"] = []
+    nivo["Секундарно"] = []
+    nivo["Терциерно"] = []
+
+    let opstini = {}
+
+    for (let i = 0; i < data.length; i++) {
+        if (data[i]["Доктор"] === "/") {
+            continue;
         }
-        newData.children.push(tmp)
+        if (data[i]["Специјалност"] === "/") {
+            continue;
+        }
+
+        // POL-at kalendar
+        if (data[i]["Пол"] === "Женски") {
+            let tmp = doctorObject(data[i])
+            pol["Женски"].push(tmp)
+        }
+        if (data[i]["Пол"] === "Машки") {
+            let tmp = doctorObject(data[i])
+            pol["Машки"].push(tmp)
+        }
+
+        // Specijalnost
+        let specTmp = data[i]["Специјалност"]
+        if (specijalnost.hasOwnProperty(specTmp)) {
+            specijalnost[specTmp].push(doctorObject(data[i]))
+        } else {
+            specijalnost[specTmp] = []
+            specijalnost[specTmp].push(doctorObject(data[i]))
+        }
+
+        // rabMesto
+        let rabMestoTmp = data[i]["Работно место"]
+        if (rabMesto.hasOwnProperty(rabMestoTmp)) {
+            rabMesto[rabMestoTmp].push(doctorObject(data[i]))
+        } else {
+            rabMesto[rabMestoTmp] = []
+            rabMesto[rabMestoTmp].push(doctorObject(data[i]))
+        }
+
+        // privatno / drzavno
+        if (data[i]["Приватно\/Државно"] === "Државно") {
+            let tmp = doctorObject(data[i])
+            privDrzavno["Државно"].push(tmp)
+        }
+        if (data[i]["Приватно\/Државно"] === "Приватно") {
+            let tmp = doctorObject(data[i])
+            privDrzavno["Приватно"].push(tmp)
+        }
+
+        // Nivo
+        if (data[i]["Примарно\/Секундарно\/Терциерно"] === "Примарно ниво") {
+            let tmp = doctorObject(data[i])
+            nivo["Примарно"].push(tmp)
+        }
+        if (data[i]["Примарно\/Секундарно\/Терциерно"] === "Секундарно ниво") {
+            let tmp = doctorObject(data[i])
+            nivo["Секундарно"].push(tmp)
+        }
+        if (data[i]["Примарно\/Секундарно\/Терциерно"] === "Терциерно ниво") {
+            let tmp = doctorObject(data[i])
+            nivo["Терциерно"].push(tmp)
+        }
+
+        // opstini
+        let opstiniTmp = data[i]["Општина"]
+        if (opstini.hasOwnProperty(opstiniTmp)) {
+            opstini[opstiniTmp].push(doctorObject(data[i]))
+        } else {
+            opstini[opstiniTmp] = []
+            opstini[opstiniTmp].push(doctorObject(data[i]))
+        }
     }
 
-    const data = newData
+    console.log("POL", pol)
+    console.log("specijalnost", specijalnost)
+    console.log("rabMesto", rabMesto)
+    console.log("privDrzavno", privDrzavno)
+    console.log("nivo", nivo)
+    console.log("opstini", opstini)
+}
 
-    // Dimensions
+async function makeDoctors(dataca, from, to) {
+    let newData = {};
+    newData.name = "Доктори";
+    newData.children = [];
+
+    for (let i = from; i < to; i++) {
+        let tmp = {};
+        tmp.name = dataca[i]["Доктор"];
+        tmp["Пол"] = dataca[i]["Пол"];
+        if (tmp.name === "/") {
+            i++;
+            continue;
+        }
+        newData.children.push(tmp);
+    }
+
+    const data = newData;
+
     const width = innerWidth;
     const height = innerHeight;
-    const cx = width * 0.5; // adjust as needed to fit
-    const cy = height * 0.54; // adjust as needed to fit
+    const cx = width * 0.5;
+    const cy = height * 0.54;
     const radius = Math.min(width, height) / 2 - 200;
 
-    // Create a radial cluster layout. The layout’s first dimension (x)
-    // is the angle, while the second (y) is the radius.
     const tree = d3.cluster()
         .size([2 * Math.PI, radius])
         .separation((a, b) => (a.parent == b.parent ? 1 : 2) / a.depth);
 
-    // Sort the tree and apply the layout.
     const root = tree(d3.hierarchy(data)
         .sort((a, b) => d3.ascending(a.data.name, b.data.name)));
 
-    // Creates the SVG container.
-    const svg = d3.select("#doctors").append("svg")
-        .attr("width", width)
-        .attr("height", height)
-        .attr("viewBox", [-cx, -cy, width, height])
-        .attr("style", "width: 100%; height: 100%; font: 1rem sans-serif;");
+    let svg
+    if (isFirst) {
+        svg = d3.select("#doctors").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .attr("viewBox", [-cx, -cy, width, height])
+            .attr("style", "width: 100%; height: 100%; font: 0.85rem sans-serif;");
+    } else {
+        document.getElementById('doctors').innerHTML = ""
+        svg = d3.select("#doctors").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .attr("viewBox", [-cx, -cy, width, height])
+            .attr("style", "width: 100%; height: 100%; font: 0.85rem sans-serif;");
+    }
 
-    // Append links.
     svg.append("g")
         .attr("fill", "none")
         .attr("stroke", "#555")
@@ -264,7 +373,6 @@ async function makeDoctors(dataca) {
             .angle(d => d.x)
             .radius(d => d.y));
 
-    // Append nodes.
     svg.append("g")
         .selectAll()
         .data(root.descendants())
@@ -273,7 +381,6 @@ async function makeDoctors(dataca) {
         .attr("fill", d => d.children ? "#555" : "#999")
         .attr("r", 2.5);
 
-    // Append labels.
     svg.append("g")
         .attr("stroke-linejoin", "round")
         .attr("stroke-width", 3)
@@ -288,18 +395,48 @@ async function makeDoctors(dataca) {
         .attr("stroke", "white")
         .attr("fill", "currentColor")
         .text(d => d.data.name);
+
+    if (isFirst) {
+        splitDoctorsData(dataca)
+
+        isFirst = false
+    }
 }
 
-let ustanovi = []
-let datagradovi = []
+function changeDoctorsTree(broj) {
+    if (broj === 100 && doctorsLength <= currTo + 100) {
+        currFrom = 0
+        currTo = 100
+        return
+    }
+    if (broj === -100 && 0 >= currFrom) {
+        currFrom = 6300
+        currTo = 6400
+        return
+    }
 
-fetchItData()
-getData()
+    currFrom += broj
+    currTo += broj
+    getData("doctors")
+}
+
+let currFrom = 0
+let currTo = 100
+let doctorsLength = 6400
+
+let isFirst = true
+
+let ustanovi = [];
+let datagradovi = [];
+let datazdravstvo = [];
+
+fetchItData();
+getData("se");
 
 document.addEventListener("DOMContentLoaded", function () {
     const opshtina = document.getElementById('odberi_opshtina');
     const checkbox = document.querySelector('.toggle input');
-    const doctors = document.getElementById('doctors');
+    const doctors = document.getElementById('doktorContainer');
     const nivo = document.getElementById("odberi_nivo");
 
     checkbox.addEventListener('change', function() {
@@ -311,13 +448,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     nivo.addEventListener('change', function () {
-        prebaraj()
-    })
+        prebaraj();
+    });
 
-    opshtina.addEventListener('change', function () {
-        //    setMarkers()
-    })
+    opshtina.addEventListener('onClick', function () {
+        setMarkers();
+    });
 });
-
-
-
