@@ -154,21 +154,23 @@ async function getData(dali) {
 async function fetchItData() {
     let dropdown = document.getElementById('odberi_nivo');
     let nivo = dropdown.options[dropdown.selectedIndex].value;
-    let heder = document.getElementById('heder-zdravstvo').innerHTML = nivo;
+    document.getElementById('heder-zdravstvo').innerHTML = nivo;
     let data = await fetchData("https://iammistake.github.io/KonceptiProject/podatoci/zdravstvo.json");
 
+    let tabela = document.getElementById("instituciTabela")
+    tabela.innerHTML = ""
     let instituci = [];
 
     data[nivo].forEach(inst => {
         instituci.push(inst);
     });
 
-    await createItBubbles(instituci);
-}
-
-function prebaraj() {
-    let bubble = document.getElementById('bubble-chart').innerHTML = "";
-    fetchItData();
+    // console.log(instituci, nivo)
+    instituci.forEach(i=>{
+        tabela.innerHTML+="<tr><th>"+i["Опис"]+"</th><th>"
+    })
+    // await createItBubbles(instituci);
+    // await setMarkers()
 }
 
 function setMarkers() {
@@ -178,16 +180,24 @@ function setMarkers() {
     markers.forEach(marker => mymap.removeLayer(marker));
     markers = [];
 
-    ustanovi.forEach(ustanova => {
-        if (ustanova["Општина"].toString().toLowerCase() === opshtina.toString().toLowerCase()) {
+    if (opshtina === "site") {
+        console.log(ustanovi)
+        ustanovi.forEach(ustanova => {
             let coords = ustanova["Геолокација"].split(", ");
             let newMarker = L.marker([parseFloat(coords[0]), parseFloat(coords[1])]).addTo(mymap)
                 .bindPopup(`<b>${ustanova["Установи"]}</b><br>Тип: ${ustanova["Тип"]}<br>Вид: ${ustanova["Приватно\/Државно"]}<br>Ниво: ${ustanova["Примарно\/секундарно\/терциерно"]}`);
             markers.push(newMarker);
-        }
-    });
-
-    // mymap.setView()
+        });
+    } else {
+        ustanovi.forEach(ustanova => {
+            if (ustanova["Општина"].toString().toLowerCase() === opshtina.toString().toLowerCase()) {
+                let coords = ustanova["Геолокација"].split(", ");
+                let newMarker = L.marker([parseFloat(coords[0]), parseFloat(coords[1])]).addTo(mymap)
+                    .bindPopup(`<b>${ustanova["Установи"]}</b><br>Тип: ${ustanova["Тип"]}<br>Вид: ${ustanova["Приватно\/Државно"]}<br>Ниво: ${ustanova["Примарно\/секундарно\/терциерно"]}`);
+                markers.push(newMarker);
+            }
+        });
+    }
 
     datagradovi.forEach(grad => {
         if (grad["град"].toString().toLowerCase() === opshtina.toString().toLowerCase()) {
@@ -198,7 +208,7 @@ function setMarkers() {
     creatingUstanovi();
 }
 
-function creatingUstanovi() {
+function creatingUstanovi(daliSe) {
     let div = document.getElementById('info_ustanovi');
     let opshtina = document.getElementById('odberi_opshtina').value;
     div.innerHTML = "";
@@ -306,12 +316,12 @@ function splitDoctorsData(data) {
         }
     }
 
-    console.log("POL", pol)
-    console.log("specijalnost", specijalnost)
-    console.log("rabMesto", rabMesto)
-    console.log("privDrzavno", privDrzavno)
-    console.log("nivo", nivo)
-    console.log("opstini", opstini)
+  //  console.log("POL", pol)
+  //  console.log("specijalnost", specijalnost)
+  //  console.log("rabMesto", rabMesto)
+  //  console.log("privDrzavno", privDrzavno)
+  //  console.log("nivo", nivo)
+  //  console.log("opstini", opstini)
 }
 
 async function makeDoctors(dataca, from, to) {
@@ -447,8 +457,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    nivo.addEventListener('change', function () {
-        prebaraj();
+    nivo.addEventListener('change', async function () {
+        await fetchItData();
     });
 
     opshtina.addEventListener('onClick', function () {

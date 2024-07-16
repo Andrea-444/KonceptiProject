@@ -34,6 +34,7 @@
 
     <script src="JAVASCRIPTs/sMyJS.js"></script>
     <link rel="stylesheet" href="CSSs/sStyle.css">
+
 </head>
 <body>
 
@@ -91,8 +92,13 @@
         <div  class="text flex">
             <h1 id="heder-zdravstvo">Институции во примарно ниво</h1>
         </div>
-        <div>
-            <svg width="1200" height="20" id="bubble-chart"></svg>
+<!--        <div>-->
+<!--            <svg width="1200" height="20" id="bubble-chart"></svg>-->
+<!--        </div>-->
+
+        <div id="nivoTable">
+            <table id="instituciTabela">
+            </table>
         </div>
     </div>
 
@@ -119,6 +125,47 @@
         </button>
     </div>
 
+<!--    <hr>-->
+<!--    <hr>-->
+    <div id="doktoriInfo">
+       <label>Државни/Приватни <select id="DrzPriv" >
+           <option value="државно">Државно</option>
+           <option value="приватно">Приватно</option>
+       </select></label> <br>
+        <lebel>Сектор <select id="sektor">
+            <option value="Примарно ниво">Институции во примарно ниво</option>
+            <option value="Секундарно ниво">Институции во секундарно ниво</option>
+            <option value="Терциерно ниво">Институции од терциерно ниво</option>
+        </select></lebel><br>
+        <label>Пол <select id="pol">
+            <option value="машки">Машки</option>
+            <option value="женски">Женски</option>
+        </select>
+        </label><br>
+        <label>Специјалност <select id="specijalnost"></select></label><br><br>
+        <button class="button-style" onclick="createTable()">Пребарај</button>
+        <div id="doktoriTable">
+            <table id="doktoriTabela">
+                <thead>
+                <tr>
+                    <th>Доктор</th>
+                    <th>Пол</th>
+                    <th>Специјалност</th>
+                    <th>Работно место</th>
+                    <th>Државни/Приватни</th>
+                    <th>Сектор</th>
+                    <th>Општина</th>
+                </tr>
+                </thead>
+
+
+            </table>
+        </div>
+
+
+        <div id="example-table"></div>
+    </div>
+
     <hr>
     <hr>
 
@@ -133,6 +180,7 @@
               </select>
              -->
             <select name="odberi_opshtina" id="odberi_opshtina" class="custom-select">
+<!--                <option value="site">Сите</option>-->
             </select>
             <button class="button-style" onclick="setMarkers()">Пребарај</button>
         </div>
@@ -206,6 +254,6 @@
 
 <script src="JAVASCRIPTs/forAll/fetchFunc.js"></script>
 <script src="JAVASCRIPTs/zdravstvoFunc.js"></script>
-
+<script src="JAVASCRIPTs/zdravstvoTabeli.js"></script>
 </body>
 </html>

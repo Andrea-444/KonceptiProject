@@ -121,6 +121,7 @@ select {
     cursor: pointer;
 }
 
+
 .custom-select::before,
 .custom-select::after {
     --size: 0.3rem;
@@ -340,3 +341,56 @@ input:checked + .slider:before {
         background-position: right bottom;
     }
 }
+
+#nivoTable {
+    height: 60vh;
+    overflow-y: scroll;
+}
+#instituciTabela {
+    text-align: center;
+}
+#doktoriTable {
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+#doktoriTabela,#instituciTabela{
+    border-collapse: collapse;
+    width: 90%;
+
+    margin: auto;
+    margin-top: 50px;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+}
+#doktoriTabela thead tr, #instituciTabela thead tr{
+    background-color: #4b4b4b;
+    color: #ffffff;
+    text-align: left;
+}
+#doktoriTabela th,
+#doktoriTabela td,#instituciTabela th,#instituciTabela td{
+    padding: 12px 15px;
+}
+#doktoriTabela tbody tr,#instituciTabela tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+#doktoriTabela tbody tr:nth-of-type(even),#instituciTabela tbody tr:nth-of-type(even){
+    background-color: #f3f3f3;
+}
+
+#doktoriTabela tbody tr:last-of-type, #instituciTabela tbody tr:last-of-type{
+    border-bottom: 2px solid #4b4b4b;
+}
+#doktoriTabela tbody tr.active-row, #instituciTabela tbody tr.active-row{
+    font-weight: bold;
+    color: #4b4b4b;
+}
+
+
+
+

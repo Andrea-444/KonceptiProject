@@ -4,7 +4,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
 }).addTo(mymap);
 
-var marker =[]
+var marker = []
 
 osnovni_ucilishta = []
 sredni_ucilishta = []
@@ -38,7 +38,7 @@ async function getData() {
         sredni_ucilishta.push(school)
     })
 
-    jsongradovi.forEach(grad=>{
+    jsongradovi.forEach(grad => {
 
         datagradovi.push(grad)
     })
@@ -53,42 +53,42 @@ function logdata() {
     let informaci_za_ucilishtata = document.getElementById("informacizaucilishtata")
     let vkbrucilishta = document.getElementById("vkbrucilishta")
     informaci_za_ucilishtata.innerHTML = ""
-    vkbrucilishta.innerHTML=""
-    var counter = 0;
-    informaci_za_ucilishtata.innerHTML+="<h2 id='vkparagraphucilishta'></h2>"
+    vkbrucilishta.innerHTML = ""
+    let counter = 0;
+    informaci_za_ucilishtata.innerHTML += "<h2 id='vkparagraphucilishta'></h2>"
 
     if (odberi_ucilishte === "site") {
         osnovni_ucilishta.forEach(school => {
             if (school["општина"].toString().toLowerCase() === opshtina.toString().toLowerCase()) {
-            //    console.log(school["општина"])
+                //    console.log(school["општина"])
                 counter++;
-                informaci_za_ucilishtata.innerHTML += "<div class='povekje_info_za_ucilishta'><p>Име на училиштето:<br> "+school['основно училиште'] +"</p><p>Адреса на училиштето: <br>"+school['адреса'] +"</p><p>Тип на училиште:<br>Основно училиште</p> </div>"
+                informaci_za_ucilishtata.innerHTML += "<div class='povekje_info_za_ucilishta'><p>Име на училиштето:<br> " + school['основно училиште'] + "</p><p>Адреса на училиштето: <br>" + school['адреса'] + "</p><p>Тип на училиште:<br>Основно училиште</p> </div>"
             }
 
         });
         sredni_ucilishta.forEach(school => {
             if (school["општина"].toString().toLowerCase() === opshtina.toString().toLowerCase()) {
-           //    console.log(school["општина"])
+                //    console.log(school["општина"])
                 counter++;
-                informaci_za_ucilishtata.innerHTML += "<div class='povekje_info_za_ucilishta'><p>Име на училиштето:<br> "+school['училиште '] +"</p><p>Адреса на училиштето: <br>"+school['адреса'] +"</p><p>Тип на училиште:<br>Средно училиште</p> </div>"
+                informaci_za_ucilishtata.innerHTML += "<div class='povekje_info_za_ucilishta'><p>Име на училиштето:<br> " + school['училиште '] + "</p><p>Адреса на училиштето: <br>" + school['адреса'] + "</p><p>Тип на училиште:<br>Средно училиште</p> </div>"
 
             }
         });
     } else if (odberi_ucilishte === "основно училиште") {
         osnovni_ucilishta.forEach(school => {
             if (school["општина"].toString().toLowerCase() === opshtina.toString().toLowerCase()) {
-           //     console.log(school)
+                //     console.log(school)
                 counter++;
-                informaci_za_ucilishtata.innerHTML += "<div class='povekje_info_za_ucilishta'><p>Име на училиштето:<br> "+school['основно училиште'] +"</p><p>Адреса на училиштето: <br>"+school['адреса'] +"</p><p>Тип на училиште:<br>Основно училиште</p> </div>"
+                informaci_za_ucilishtata.innerHTML += "<div class='povekje_info_za_ucilishta'><p>Име на училиштето:<br> " + school['основно училиште'] + "</p><p>Адреса на училиштето: <br>" + school['адреса'] + "</p><p>Тип на училиште:<br>Основно училиште</p> </div>"
 
             }
         });
     } else {
         sredni_ucilishta.forEach(school => {
             if (school["општина"].toString().toLowerCase() === opshtina.toString().toLowerCase()) {
-            //    console.log(school)
+                //    console.log(school)
                 counter++;
-                informaci_za_ucilishtata.innerHTML += "<div class='povekje_info_za_ucilishta'><p>Име на училиштето:<br> "+school['училиште '] +"</p><p>Адреса на училиштето: <br>"+school['адреса'] +"</p><p>Тип на училиште:<br>Средно училиште</p> </div>"
+                informaci_za_ucilishtata.innerHTML += "<div class='povekje_info_za_ucilishta'><p>Име на училиштето:<br> " + school['училиште '] + "</p><p>Адреса на училиштето: <br>" + school['адреса'] + "</p><p>Тип на училиште:<br>Средно училиште</p> </div>"
 
             }
         });
@@ -96,22 +96,27 @@ function logdata() {
     let vkparagraph = document.getElementById("vkparagraphucilishta").innerHTML = "Вкупен број на училишта " + counter + ""
 
 
+    mymap.removeLayer(marker)
+    datagradovi.forEach(grad => {
+        if (grad["град"].toString().toLowerCase() === opshtina.toString().toLowerCase()) {
 
-        mymap.removeLayer(marker)
-    datagradovi.forEach(grad=>{
-        if(grad["град"].toString().toLowerCase()===opshtina.toString().toLowerCase()){
-
-             marker = L.marker([grad["координати"]["latitude"], grad["координати"]["longitude"]]).addTo(mymap);
+            marker = L.marker([grad["координати"]["latitude"], grad["координати"]["longitude"]]).addTo(mymap);
 
         }
 
     })
 
 
+    datagradovi.forEach(grad => {
+        if (grad["град"].toString().toLowerCase() === opshtina.toString().toLowerCase()) {
+            mymap.setView([grad["координати"]["latitude"], grad["координати"]["longitude"]], 11)
+        }
+    })
+
 
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const dropdown = document.getElementById('odberi_opstina');
     const sch = document.getElementById("odberi_ucilishte");
 
